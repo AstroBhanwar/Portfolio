@@ -1,0 +1,2100 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>पंडित भंवर पुरोहित – विश्व प्रसिद्ध ज्योतिषाचार्य, रायपुर</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Tiro+Devanagari+Hindi:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════ */
+:root{
+  --g1:#7B4A00;   /* deep amber */
+  --g2:#B8790C;   /* gold */
+  --g3:#D4960E;   /* bright gold */
+  --g4:#F5C842;   /* light gold */
+  --g5:#FDEAA0;   /* pale gold */
+  --s1:#C45A00;   /* deep saffron */
+  --s2:#E07010;   /* saffron */
+  --s3:#F59030;   /* light saffron */
+  --cream:#FDF8F0;
+  --cream2:#FEF4E4;
+  --ivory:#FFFDF7;
+  --paper:#FFF9EE;
+  --dark:#1C120A;
+  --mid:#5A3A18;
+  --soft:#6B4423;
+  --muted:#8B5E2A;
+  --border:rgba(184,121,12,.18);
+  --border2:rgba(184,121,12,.4);
+  --glow:rgba(212,150,14,.22);
+  --glow2:rgba(224,112,16,.35);
+  --night1:#1a0f06;
+  --night2:#2e1a08;
+  --night3:#3d2410;
+  --emerald:#1f6b4f;
+  --ruby:#a8243a;
+  --sapphire:#2a4a8c;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--cream);color:var(--dark);overflow-x:hidden;font-family:'Tiro Devanagari Hindi',serif}
+
+/* ── GRADIENT TEXT HELPER ── */
+.gt{
+  background:linear-gradient(130deg,var(--s2),var(--g3),var(--g4));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  display:inline-block;padding:.06em .04em .18em;
+}
+.gt2{
+  background:linear-gradient(130deg,var(--g4),var(--s3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  display:inline-block;padding:.06em .04em .18em;
+}
+
+/* ═══════════════════════════════════════
+   CANVAS LAYERS
+═══════════════════════════════════════ */
+#bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
+#mandala-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.07}
+#stars-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;mix-blend-mode:multiply}
+
+/* ═══════════════════════════════════════
+   SHARED PREMIUM HELPERS
+═══════════════════════════════════════ */
+.eyebrow-line{
+  display:flex;align-items:center;justify-content:center;gap:.8rem;
+}
+.eyebrow-line::before,.eyebrow-line::after{
+  content:'';width:28px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--g3));
+}
+.eyebrow-line::after{background:linear-gradient(90deg,var(--g3),transparent)}
+
+/* shimmering border sweep used on premium cards */
+.shimmer-border{position:relative}
+.shimmer-border::before{
+  content:'';position:absolute;inset:0;border-radius:inherit;
+  background:linear-gradient(115deg,transparent 20%,rgba(255,255,255,.5) 50%,transparent 80%);
+  background-size:250% 100%;background-position:200% 0;
+  opacity:0;transition:opacity .3s;pointer-events:none;mix-blend-mode:overlay;
+}
+.shimmer-border:hover::before{opacity:1;animation:shimmerSweep 1.4s ease;}
+@keyframes shimmerSweep{from{background-position:200% 0}to{background-position:-50% 0}}
+
+/* tilt-on-hover utility for 3D card feel */
+.tilt{transform-style:preserve-3d;transition:transform .4s cubic-bezier(.22,1,.36,1)}
+
+
+/* ═══════════════════════════════════════
+   PAGE LOADER
+═══════════════════════════════════════ */
+#loader{
+  position:fixed;inset:0;z-index:9998;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--cream);
+  transition:opacity .6s ease, visibility .6s ease;
+}
+#loader.hide{opacity:0;visibility:hidden;pointer-events:none}
+.loader-orbit{
+  position:relative;width:84px;height:84px;
+}
+.loader-ring{
+  position:absolute;inset:0;border-radius:50%;
+  border:1px solid var(--border2);
+}
+.loader-ring.r2{inset:14px;border-style:dashed;border-color:rgba(212,150,14,.3)}
+.loader-orbit .lo-planet{
+  position:absolute;top:-6px;left:50%;width:12px;height:12px;border-radius:50%;
+  transform:translateX(-50%);
+  background:radial-gradient(circle at 35% 30%,var(--g5),var(--g3),var(--s2));
+  box-shadow:0 0 12px var(--glow2);
+}
+.loader-orbit .lo-planet.lo2{
+  width:8px;height:8px;top:auto;bottom:8px;left:auto;right:8px;
+  background:radial-gradient(circle at 35% 30%,#fff,#e07010);
+}
+.loader-orbit .lo-center{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:18px;height:18px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,var(--g4),var(--s1));
+  box-shadow:0 0 20px var(--glow2);
+  animation:loaderPulse 1.4s ease-in-out infinite;
+}
+@keyframes loaderPulse{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.9}50%{transform:translate(-50%,-50%) scale(1.15);opacity:1}}
+.loader-orbit{animation:loaderSpin 4s linear infinite}
+.loader-orbit .loader-ring.r2{animation:loaderSpin 6s linear infinite reverse}
+@keyframes loaderSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+/* ═══════════════════════════════════════
+   CUSTOM CURSOR
+═══════════════════════════════════════ */
+@media(pointer:fine){
+  html,body,a,button,.btn-gold,.btn-outline,.nav-cta{cursor:none}
+  .cursor-dot,.cursor-ring{
+    position:fixed;top:0;left:0;pointer-events:none;z-index:10000;
+    transform:translate(-50%,-50%);will-change:transform;
+  }
+  .cursor-dot{
+    width:7px;height:7px;border-radius:50%;
+    background:linear-gradient(135deg,var(--s2),var(--g3));
+    box-shadow:0 0 8px var(--glow2);
+    transition:transform .12s ease, opacity .2s;
+  }
+  .cursor-ring{
+    width:34px;height:34px;border-radius:50%;
+    border:1px solid var(--border2);
+    display:flex;align-items:center;justify-content:center;
+    transition:transform .18s cubic-bezier(.22,1,.36,1), width .25s, height .25s, border-color .25s, opacity .2s;
+  }
+  .cursor-ring::before{
+    content:'✦';font-size:.65rem;color:var(--g3);
+    opacity:0;transition:opacity .25s;transform:rotate(0deg);
+    animation:cursorSpin 6s linear infinite;
+  }
+  .cursor-ring.active{
+    width:54px;height:54px;
+    border-color:var(--g3);
+    background:rgba(212,150,14,.07);
+  }
+  .cursor-ring.active::before{opacity:1}
+  .cursor-dot.active{transform:translate(-50%,-50%) scale(0)}
+}
+@keyframes cursorSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+/* click sparkle burst */
+.click-spark{
+  position:fixed;top:0;left:0;pointer-events:none;z-index:10000;
+  font-size:1rem;color:var(--g3);
+  --tx:0px;--ty:-26px;
+  animation:sparkBurst .6s ease-out forwards;
+}
+@keyframes sparkBurst{
+  0%{opacity:1;transform:translate(-50%,-50%) scale(.4) translate(0,0)}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(1.4) translate(var(--tx),var(--ty))}
+}
+
+
+/* ═══════════════════════════════════════
+   NAV
+═══════════════════════════════════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 3rem;height:68px;
+  background:rgba(253,248,240,.98);
+  border-bottom:1px solid var(--border);
+  transition:box-shadow .3s,background .3s,height .3s;
+}
+nav.scrolled{box-shadow:0 4px 40px rgba(184,121,12,.12);height:60px;background:var(--cream)}
+.nav-logo{
+  display:flex;align-items:center;gap:.7rem;
+  font-family:'Tiro Devanagari Hindi',serif;font-size:.9rem;color:var(--g2);font-weight:700;
+  letter-spacing:.02em;
+}
+.nav-logo-om{
+  font-size:1.6rem;position:relative;
+  background:linear-gradient(160deg,var(--s2),var(--g3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  display:inline-block;padding:.05em .02em .12em;
+  animation:omPulse 3s ease-in-out infinite;
+  filter:drop-shadow(0 0 8px rgba(212,150,14,.35));
+}
+@keyframes omPulse{0%,100%{opacity:.85}50%{opacity:1}}
+.nav-links{display:flex;gap:2.2rem;list-style:none}
+.nav-links a{
+  font-size:.85rem;color:var(--dark);text-decoration:none;
+  position:relative;padding-bottom:2px;transition:color .25s;font-weight:600;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:1.5px;
+  background:linear-gradient(90deg,var(--s2),var(--g4));
+  transform:scaleX(0);transform-origin:left;transition:transform .3s;
+}
+.nav-links a:hover{color:var(--g2)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-cta{
+  padding:.55rem 1.5rem;font-size:.82rem;
+  background:linear-gradient(135deg,var(--s2),var(--g3));
+  background-size:200% 200%;
+  color:var(--ivory);border:none;cursor:pointer;text-decoration:none;
+  border-radius:2px;box-shadow:0 2px 14px var(--glow);
+  transition:transform .2s,box-shadow .2s,background-position .6s;
+  position:relative;letter-spacing:.02em;
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 6px 24px var(--glow2);background-position:100% 100%}
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+.hero{
+  position:relative;min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:5rem 2rem 6rem;z-index:1;overflow:hidden;
+}
+
+/* Geometric SVG mandala behind hero text */
+.hero-mandala{
+  position:absolute;top:50%;left:50%;
+  width:min(700px,95vw);height:min(700px,95vw);
+  transform:translate(-50%,-50%);
+  pointer-events:none;z-index:0;
+  animation:slowSpin 120s linear infinite;
+  opacity:.12;
+}
+@keyframes slowSpin{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+
+.hero-mandala2{
+  position:absolute;top:50%;left:50%;
+  width:min(500px,80vw);height:min(500px,80vw);
+  transform:translate(-50%,-50%);
+  pointer-events:none;z-index:0;
+  animation:slowSpin 80s linear infinite reverse;
+  opacity:.09;
+}
+
+/* Radial glow blooms */
+.hero-bloom{position:absolute;border-radius:50%;pointer-events:none}
+.hero-bloom.b1{
+  width:min(700px,90vw);height:min(700px,90vw);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(245,200,66,.16) 0%,rgba(224,112,16,.06) 35%,transparent 65%);
+  animation:bloomBreath 6s ease-in-out infinite;
+}
+.hero-bloom.b2{
+  width:300px;height:300px;top:10%;left:5%;
+  background:radial-gradient(circle,rgba(224,112,16,.08),transparent 70%);
+  animation:bloomDrift 8s ease-in-out infinite;
+}
+.hero-bloom.b3{
+  width:250px;height:250px;bottom:15%;right:8%;
+  background:radial-gradient(circle,rgba(184,121,12,.07),transparent 70%);
+  animation:bloomDrift 9s ease-in-out infinite reverse;
+}
+@keyframes bloomBreath{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.7}50%{transform:translate(-50%,-50%) scale(1.08);opacity:1}}
+@keyframes bloomDrift{0%,100%{transform:scale(1) translate(0,0);opacity:.6}50%{transform:scale(1.2) translate(10px,-10px);opacity:1}}
+
+/* Floating corner lotuses */
+.hero-lotus{position:absolute;pointer-events:none;opacity:.15;font-size:3rem;animation:lotusFloat 7s ease-in-out infinite}
+.hero-lotus.l1{top:12%;left:6%;animation-delay:0s}
+.hero-lotus.l2{top:15%;right:8%;animation-delay:1.5s}
+.hero-lotus.l3{bottom:12%;left:4%;animation-delay:3s;font-size:2.2rem}
+.hero-lotus.l4{bottom:18%;right:6%;animation-delay:4.5s;font-size:2.5rem}
+@keyframes lotusFloat{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-12px) rotate(5deg)}}
+
+/* Twinkling star sparkles */
+.hero-spark{position:absolute;pointer-events:none;color:var(--g3);animation:twinkle 3s ease-in-out infinite}
+.hero-spark.sp1{top:22%;left:18%;font-size:.9rem;animation-delay:.2s}
+.hero-spark.sp2{top:32%;right:16%;font-size:1.1rem;animation-delay:1.1s}
+.hero-spark.sp3{bottom:30%;left:14%;font-size:.7rem;animation-delay:1.9s}
+.hero-spark.sp4{bottom:22%;right:22%;font-size:1rem;animation-delay:.7s}
+.hero-spark.sp5{top:8%;left:42%;font-size:.65rem;animation-delay:2.4s}
+.hero-spark.sp6{top:48%;right:6%;font-size:.8rem;animation-delay:1.5s}
+@keyframes twinkle{0%,100%{opacity:.15;transform:scale(.8)}50%{opacity:1;transform:scale(1.2)}}
+
+/* Orbiting planet ring around hero */
+.hero-orbit{
+  position:absolute;top:50%;left:50%;
+  width:min(620px,92vw);height:min(620px,92vw);
+  transform:translate(-50%,-50%);
+  pointer-events:none;z-index:0;
+  border:1px dashed rgba(184,121,12,.14);
+  border-radius:50%;
+  animation:slowSpin 90s linear infinite;
+}
+.hero-orbit .orbit-dot{
+  position:absolute;top:-6px;left:50%;width:12px;height:12px;border-radius:50%;
+  transform:translateX(-50%);
+  box-shadow:0 0 14px currentColor;
+}
+.hero-orbit.o2{
+  width:min(440px,78vw);height:min(440px,78vw);
+  animation:slowSpin 65s linear infinite reverse;
+  border-color:rgba(224,112,16,.12);
+}
+
+.hero-content{position:relative;z-index:2}
+
+.hero-om{
+  font-family:'Tiro Devanagari Hindi',serif;
+  font-size:clamp(3.5rem,9vw,6.5rem);line-height:1.3;
+  background:linear-gradient(160deg,var(--s1) 0%,var(--s2) 25%,var(--g3) 55%,var(--g4) 80%,var(--g5) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  display:inline-block;padding:.05em .08em .2em;
+  filter:drop-shadow(0 0 30px rgba(212,150,14,.3));
+  animation:omGlow 4s ease-in-out infinite;
+  margin-bottom:.3rem;
+}
+@keyframes omGlow{
+  0%,100%{filter:drop-shadow(0 0 20px rgba(184,121,12,.2))}
+  50%{filter:drop-shadow(0 0 50px rgba(224,112,16,.6))}
+}
+
+.hero-eyebrow{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:clamp(.9rem,2vw,1.1rem);color:var(--s1);
+  letter-spacing:.2em;margin-bottom:1rem;
+  animation:fadeUp .9s .05s both;
+}
+
+.hero-name{
+  font-family:'Tiro Devanagari Hindi',serif;font-weight:700;
+  font-size:clamp(2rem,6vw,4.2rem);
+  line-height:1.9;
+  background:linear-gradient(135deg,var(--dark) 0%,var(--mid) 40%,var(--g1) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  display:inline-block;padding:.04em .04em .18em;
+  animation:fadeUp .9s .15s both;
+}
+
+.hero-qual{
+  font-family:'Cormorant Garamond',serif;font-weight:700;
+  font-size:clamp(.85rem,1.8vw,1.05rem);color:var(--dark);
+  letter-spacing:.04em;margin-top:-.4rem;margin-bottom:.6rem;
+  animation:fadeUp .9s .2s both;
+}
+
+.hero-divider{
+  display:flex;align-items:center;gap:1.2rem;
+  margin:1.2rem auto;width:min(480px,88vw);
+  animation:fadeUp .9s .25s both;
+}
+.hero-divider::before,.hero-divider::after{
+  content:'';flex:1;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(184,121,12,.55),transparent);
+}
+.hero-divider-center{color:var(--g2);font-size:.85rem;letter-spacing:.15em;white-space:nowrap}
+
+.hero-subtitle{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1rem,2.4vw,1.35rem);color:var(--mid);
+  letter-spacing:.06em;margin-bottom:1rem;
+  animation:fadeUp .9s .3s both;font-weight:700;
+}
+.hero-tagline{
+  font-size:clamp(.9rem,1.8vw,1rem);color:var(--dark);
+  max-width:520px;margin:0 auto;line-height:2.6;font-weight:600;
+  animation:fadeUp .9s .38s both;
+}
+
+.hero-badges{
+  display:flex;gap:.7rem;flex-wrap:wrap;justify-content:center;
+  margin:1.8rem auto 0;animation:fadeUp .9s .45s both;
+}
+.hero-badge{
+  font-family:'Cormorant Garamond',serif;
+  font-size:.85rem;padding:.4rem 1.1rem;letter-spacing:.08em;
+  border:1.5px solid var(--border2);color:var(--dark);
+  background:rgba(212,150,14,.1);
+  display:flex;align-items:center;gap:.4rem;
+  transition:all .3s;font-weight:700;
+}
+.hero-badge:hover{background:rgba(212,150,14,.12);border-color:var(--g3);transform:translateY(-2px)}
+.hero-badge .gem{color:var(--g3);font-size:.7rem;animation:twinkle 2.5s ease-in-out infinite}
+
+.hero-btns{
+  display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;
+  margin-top:2.2rem;animation:fadeUp .9s .55s both;
+}
+.btn-gold{
+  padding:1rem 2.6rem;
+  background:linear-gradient(135deg,var(--s1) 0%,var(--s2) 40%,var(--g3) 100%);
+  background-size:200%;
+  color:var(--ivory);font-size:.95rem;border:none;
+  cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;
+  box-shadow:0 4px 28px rgba(212,150,14,.38),inset 0 1px 0 rgba(255,255,255,.15);
+  transition:all .3s;position:relative;overflow:hidden;
+}
+.btn-gold::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.15),transparent 50%);
+  transform:translateX(-100%);transition:transform .4s;
+}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(212,150,14,.5)}
+.btn-gold:hover::before{transform:translateX(100%)}
+.btn-outline{
+  padding:1rem 2.4rem;background:transparent;
+  color:var(--g2);border:1.5px solid var(--border2);
+  font-size:.95rem;cursor:pointer;text-decoration:none;display:inline-block;
+  transition:all .3s;
+}
+.btn-outline:hover{background:rgba(184,121,12,.07);border-color:var(--g3);color:var(--g3)}
+
+/* Scroll hint */
+.scroll-hint{
+  position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);
+  z-index:10;display:flex;flex-direction:column;align-items:center;gap:.5rem;
+  opacity:.7;animation:scrollBob 2s ease-in-out infinite;
+  pointer-events:none;
+}
+.scroll-hint span{font-family:'Cormorant Garamond',serif;font-size:.7rem;letter-spacing:.15em;color:var(--dark);text-transform:uppercase;font-weight:600}
+.scroll-arrow{width:18px;height:18px;border-right:2px solid var(--g1);border-bottom:2px solid var(--g1);transform:rotate(45deg)}
+@keyframes scrollBob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+
+/* ═══════════════════════════════════════
+   MARQUEE PLANET STRIP
+═══════════════════════════════════════ */
+.strip{
+  position:relative;z-index:1;
+  background:linear-gradient(90deg,var(--cream2) 0%,var(--paper) 50%,var(--cream2) 100%);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:0;overflow:hidden;
+}
+.strip-inner{
+  display:flex;align-items:center;gap:2.5rem;
+  padding:1.8rem 2rem;
+  animation:marq 30s linear infinite;
+  width:max-content;
+}
+.strip:hover .strip-inner{animation-play-state:paused}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.planet-pill{
+  display:flex;align-items:center;gap:.8rem;
+  padding:.6rem 1.2rem;
+  background:var(--ivory);border:1px solid var(--border);
+  white-space:nowrap;transition:all .25s;cursor:default;
+  flex-shrink:0;
+}
+.planet-pill:hover{border-color:var(--g3);box-shadow:0 4px 20px var(--glow);transform:translateY(-2px)}
+.porb{
+  width:38px;height:38px;border-radius:50%;flex-shrink:0;
+  box-shadow:0 2px 8px rgba(0,0,0,.12),inset 0 1px 0 rgba(255,255,255,.4);
+  animation:floatOrb var(--d,4s) ease-in-out infinite var(--dl,0s);
+}
+@keyframes floatOrb{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.porb.sun{background:radial-gradient(circle at 35% 30%,#fffcc0,#f8d040,#c87808)}
+.porb.moon{background:radial-gradient(circle at 35% 30%,#f0f0ff,#b8c0d8,#788898)}
+.porb.mars{background:radial-gradient(circle at 35% 30%,#ffb0a0,#d84020,#980c0c)}
+.porb.mercury{background:radial-gradient(circle at 35% 30%,#c8e8c8,#88b080,#406040)}
+.porb.jupiter{background:radial-gradient(circle at 35% 30%,#ffe8a0,#d0a040,#885010)}
+.porb.venus{background:radial-gradient(circle at 35% 30%,#fff0e8,#f0c890,#b88050)}
+.porb.saturn{background:radial-gradient(circle at 35% 30%,#e8e0c0,#b0a870,#685830)}
+.porb.rahu{background:radial-gradient(circle at 35% 30%,#909098,#585868,#282838)}
+.porb.ketu{background:radial-gradient(circle at 35% 30%,#c09888,#906050,#501818)}
+.pill-text{display:flex;flex-direction:column}
+.pill-hi{font-size:.88rem;color:var(--dark);font-weight:600;line-height:1.7}
+.pill-en{font-family:'Cormorant Garamond',serif;font-size:.72rem;color:var(--muted);letter-spacing:.06em}
+
+/* ═══════════════════════════════════════
+   SECTION BASE
+═══════════════════════════════════════ */
+section{position:relative;z-index:1;padding:6rem 2rem}
+.sec-wrap{max-width:1100px;margin:0 auto}
+.sec-head{text-align:center;margin-bottom:4rem}
+.sec-kicker{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.9rem;color:var(--s2);letter-spacing:.2em;
+  text-transform:uppercase;margin-bottom:.6rem;display:block;
+}
+.sec-h{
+  font-family:'Tiro Devanagari Hindi',serif;font-weight:700;
+  font-size:clamp(1.5rem,3.8vw,2.5rem);color:var(--dark);
+  line-height:2.1;margin-bottom:.5rem;
+}
+.sec-rule{
+  display:flex;align-items:center;gap:1rem;
+  width:min(300px,80vw);margin:.8rem auto 0;
+}
+.sec-rule::before,.sec-rule::after{
+  content:'';flex:1;height:1px;
+  background:linear-gradient(90deg,transparent,var(--border2),transparent);
+}
+.sec-rule-dot{color:var(--g2);font-size:.7rem}
+
+/* ── REVEAL ── */
+.rv{opacity:0;transform:translateY(36px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.rv.on{opacity:1;transform:none}
+.rv-left{opacity:0;transform:translateX(-40px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.rv-left.on{opacity:1;transform:none}
+.rv-right{opacity:0;transform:translateX(40px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.rv-right.on{opacity:1;transform:none}
+
+/* ═══════════════════════════════════════
+   ABOUT / SHOWCASE
+═══════════════════════════════════════ */
+.about-sec{
+  background:linear-gradient(150deg,var(--paper) 0%,var(--cream2) 100%);
+  border-bottom:1px solid var(--border);
+}
+.about-inner{
+  max-width:1050px;margin:0 auto;
+  display:flex;align-items:center;gap:5rem;flex-wrap:wrap;
+}
+/* Photo */
+.photo-wrap{position:relative;flex-shrink:0;width:280px}
+.photo-glow{
+  position:absolute;inset:-30px;border-radius:50%;
+  background:radial-gradient(circle,rgba(212,150,14,.15),transparent 65%);
+  animation:bloomBreath 5s ease-in-out infinite;
+  pointer-events:none;
+}
+.photo-ring-set{position:absolute;top:50%;left:50%;}
+.pr{position:absolute;border-radius:50%;top:50%;left:50%;border:1px solid}
+.pr1{width:340px;height:340px;transform:translate(-50%,-50%);border-color:rgba(184,121,12,.18);animation:prSpin 40s linear infinite}
+.pr2{width:400px;height:400px;transform:translate(-50%,-50%);border-color:rgba(212,150,14,.1);border-style:dashed;animation:prSpin 60s linear infinite reverse}
+@keyframes prSpin{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+/* Gem dots on ring */
+.pr1::before,.pr1::after{
+  content:'✦';position:absolute;color:var(--g3);font-size:.6rem;
+  top:50%;left:0;transform:translate(-50%,-50%);
+}
+.pr1::after{left:auto;right:0;transform:translate(50%,-50%)}
+.photo-frame{
+  position:relative;z-index:2;
+  width:280px;height:300px;overflow:hidden;
+  border:2.5px solid transparent;
+  background:linear-gradient(var(--cream2),var(--cream2)) padding-box,
+             linear-gradient(160deg,var(--g4),var(--g2),var(--s2)) border-box;
+  box-shadow:0 20px 60px rgba(184,121,12,.25),0 4px 0 rgba(255,255,255,.8) inset;
+}
+.photo-frame img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.photo-placeholder{
+  width:100%;height:100%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:linear-gradient(160deg,#fff9ee,#fef0d0);
+  gap:.6rem;
+}
+.photo-placeholder .ph-om{
+  font-size:3.5rem;
+  background:linear-gradient(160deg,var(--s2),var(--g3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  display:inline-block;padding:.05em .05em .15em;
+}
+.photo-placeholder span{font-size:.78rem;color:var(--soft);letter-spacing:.08em}
+
+/* Stat pills floating around photo */
+.stat-float{
+  position:absolute;z-index:3;
+  background:var(--ivory);border:1px solid var(--border2);
+  padding:.55rem 1rem;text-align:center;
+  box-shadow:0 6px 24px var(--glow);
+  animation:statFloat 6s ease-in-out infinite;
+}
+.sf1{right:-70px;top:30px;animation-delay:0s}
+.sf2{right:-70px;bottom:50px;animation-delay:2s}
+@keyframes statFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.stat-n{
+  font-family:'Cinzel Decorative',serif;font-size:1.3rem;font-weight:900;
+  background:linear-gradient(130deg,var(--s2),var(--g3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  display:inline-block;padding:.02em .02em .1em;
+}
+.stat-l{font-size:.7rem;color:var(--soft);line-height:1.6}
+
+/* About text */
+.about-text{flex:1;min-width:280px}
+.about-badges{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.8rem;justify-content:center}
+.abadge{
+  font-size:.82rem;padding:.4rem 1rem;
+  border:1.5px solid var(--border2);color:var(--dark);
+  background:rgba(212,150,14,.1);letter-spacing:.04em;font-weight:700;
+}
+.about-h{
+  font-size:clamp(1.3rem,3vw,2rem);font-weight:700;
+  color:var(--dark);line-height:2.1;margin-bottom:1rem;
+}
+.about-p{font-size:.93rem;color:var(--dark);line-height:2.7;margin-bottom:1.8rem}
+.about-stats{display:flex;gap:2.5rem;flex-wrap:wrap}
+.ast{text-align:center;padding:1.2rem 1.5rem;background:var(--ivory);border:1px solid var(--border)}
+.ast-n{
+  font-family:'Cinzel Decorative',serif;font-size:1.8rem;font-weight:900;
+  background:linear-gradient(130deg,var(--s2),var(--g3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  display:inline-block;padding:.02em .04em .1em;
+}
+.ast-l{font-size:.78rem;color:var(--soft);margin-top:.2rem;line-height:1.8}
+
+/* ═══════════════════════════════════════
+   CERTS
+═══════════════════════════════════════ */
+.cert-sec{
+  background:var(--ivory);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+}
+.cert-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:2.5rem;max-width:960px;margin:0 auto;
+}
+.cert-card{
+  position:relative;
+  background:linear-gradient(145deg,var(--g4),var(--g2),var(--s2),var(--g3),var(--g4));
+  padding:3px;
+  box-shadow:0 8px 40px rgba(184,121,12,.18);
+  transition:transform .35s,box-shadow .35s;
+}
+.cert-card:hover{transform:translateY(-10px) scale(1.01);box-shadow:0 24px 60px rgba(184,121,12,.3)}
+.cert-inner{background:var(--ivory);position:relative;overflow:hidden}
+.cert-card img{
+  width:100%;display:block;
+  filter:brightness(1.05) contrast(1.05) saturate(1.1);
+  transition:transform .4s;
+}
+.cert-card:hover img{transform:scale(1.04)}
+.cert-corner{position:absolute;width:20px;height:20px;border-color:var(--g4);border-style:solid;z-index:5}
+.cert-corner.tl{top:12px;left:12px;border-width:2.5px 0 0 2.5px}
+.cert-corner.tr{top:12px;right:12px;border-width:2.5px 2.5px 0 0}
+.cert-corner.bl{bottom:52px;left:12px;border-width:0 0 2.5px 2.5px}
+.cert-corner.br{bottom:52px;right:12px;border-width:0 2.5px 2.5px 0}
+.cert-shine{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.25) 0%,transparent 50%);
+  transition:opacity .3s;opacity:0;pointer-events:none;z-index:4;
+}
+.cert-card:hover .cert-shine{opacity:1}
+.cert-label{
+  padding:1rem 1.2rem;text-align:center;
+  background:linear-gradient(0deg,var(--cream2),var(--ivory));
+  border-top:1px solid var(--border);
+}
+.cert-t{font-size:.92rem;font-weight:700;color:var(--dark);line-height:1.9}
+.cert-s{font-family:'Cormorant Garamond',serif;font-size:.74rem;color:var(--soft);letter-spacing:.07em;margin-top:.2rem}
+
+/* ═══════════════════════════════════════
+   PROBLEMS GRID
+═══════════════════════════════════════ */
+.prob-sec{
+  background:linear-gradient(160deg,var(--cream2),var(--paper));
+}
+.prob-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1.4rem;max-width:1040px;margin:0 auto;
+}
+@media(max-width:900px){
+  .prob-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:560px){
+  .prob-grid{grid-template-columns:1fr}
+}
+.prob-card{
+  background:var(--ivory);border:1px solid var(--border);
+  padding:2.2rem 1.6rem;text-align:center;
+  position:relative;overflow:hidden;
+  transition:all .35s;
+}
+.prob-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(212,150,14,.06),transparent 60%);
+  opacity:0;transition:opacity .35s;
+}
+.prob-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2.5px;
+  background:linear-gradient(90deg,transparent,var(--g4),var(--s2),transparent);
+  transform:scaleX(0);transition:transform .4s;
+}
+.prob-card:hover{transform:translateY(-7px);box-shadow:0 20px 50px rgba(184,121,12,.13);border-color:var(--g3)}
+.prob-card:hover::before{opacity:1}
+.prob-card:hover::after{transform:scaleX(1)}
+.prob-icon{font-size:2.4rem;margin-bottom:1rem;display:block;transition:transform .3s}
+.prob-card:hover .prob-icon{transform:scale(1.15)}
+.prob-text{font-size:.9rem;color:var(--mid);line-height:2.3}
+
+/* ═══════════════════════════════════════
+   SERVICES
+═══════════════════════════════════════ */
+.serv-sec{background:var(--paper)}
+.serv-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+  gap:1.6rem;max-width:1140px;margin:0 auto;
+}
+.serv-card{
+  background:var(--ivory);border:1px solid var(--border);
+  padding:2.4rem;position:relative;overflow:hidden;
+  transition:all .35s;
+}
+.serv-card::before{
+  content:'';position:absolute;top:0;left:0;width:3px;bottom:0;
+  background:linear-gradient(180deg,var(--g4),var(--s2));
+  transform:scaleY(0);transform-origin:top;transition:transform .4s;
+}
+.serv-card::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(212,150,14,.04),transparent 55%);
+  opacity:0;transition:opacity .35s;
+}
+.serv-card:hover{transform:translateY(-6px);box-shadow:0 24px 56px rgba(184,121,12,.12);border-color:var(--g3)}
+.serv-card:hover::before{transform:scaleY(1)}
+.serv-card:hover::after{opacity:1}
+.serv-icon-ring{
+  width:58px;height:58px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.6rem;margin-bottom:1.3rem;
+  background:linear-gradient(var(--cream2),var(--cream2)) padding-box,
+             linear-gradient(135deg,var(--g4),var(--s2)) border-box;
+  border:1.5px solid transparent;
+  box-shadow:0 4px 16px var(--glow);
+  transition:transform .3s;position:relative;z-index:1;
+}
+.serv-card:hover .serv-icon-ring{transform:scale(1.08) rotate(8deg)}
+.serv-name{font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:.6rem;line-height:1.9;position:relative;z-index:1}
+.serv-desc{font-size:.86rem;color:var(--mid);line-height:2.4;position:relative;z-index:1}
+
+/* ═══════════════════════════════════════
+   ZODIAC
+═══════════════════════════════════════ */
+.zodiac-sec{
+  background:linear-gradient(160deg,var(--cream2) 0%,var(--paper) 100%);
+  border-top:1px solid var(--border);
+}
+.zodiac-canvas-wrap{
+  display:flex;justify-content:center;
+  position:relative;
+}
+.zodiac-glow{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(212,150,14,.1),transparent 65%);
+  pointer-events:none;animation:bloomBreath 5s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════
+   NAVAGRAHA - NINE PLANETS SECTION
+═══════════════════════════════════════ */
+.graha-sec{
+  background:linear-gradient(160deg,var(--paper) 0%,var(--cream2) 100%);
+  border-top:1px solid var(--border);
+  position:relative;
+}
+.graha-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1.4rem;max-width:980px;margin:0 auto;
+}
+@media(max-width:780px){
+  .graha-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+  .graha-grid{grid-template-columns:1fr}
+}
+.graha-card{
+  background:var(--ivory);border:1px solid var(--border);
+  padding:1.8rem 1.2rem;text-align:center;position:relative;overflow:hidden;
+  transition:all .4s cubic-bezier(.22,1,.36,1);
+}
+.graha-card::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 0%,var(--gc,rgba(212,150,14,.12)),transparent 65%);
+  opacity:0;transition:opacity .4s;
+}
+.graha-card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 20px 50px rgba(184,121,12,.16);border-color:var(--g3)}
+.graha-card:hover::before{opacity:1}
+.graha-orb{
+  width:56px;height:56px;border-radius:50%;margin:0 auto 1rem;position:relative;
+  box-shadow:0 4px 16px rgba(0,0,0,.15),inset 0 2px 4px rgba(255,255,255,.4);
+  transition:transform .4s;
+}
+.graha-card:hover .graha-orb{transform:scale(1.12) rotate(8deg)}
+.graha-orb::after{
+  content:'';position:absolute;inset:-8px;border-radius:50%;
+  border:1px dashed var(--gc,rgba(184,121,12,.3));
+  animation:prSpin 16s linear infinite;
+}
+.graha-sym{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:rgba(255,255,255,.85);text-shadow:0 1px 4px rgba(0,0,0,.3)}
+.graha-name{font-size:.95rem;font-weight:700;color:var(--dark);margin-bottom:.2rem;line-height:1.8}
+.graha-en{font-family:'Cormorant Garamond',serif;font-size:.72rem;color:var(--soft);letter-spacing:.1em;margin-bottom:.5rem;text-transform:uppercase}
+.graha-desc{font-size:.78rem;color:var(--mid);line-height:2.1}
+
+/* Orb colors per planet */
+.go-sun{background:radial-gradient(circle at 35% 30%,#fffcc0,#f8d040,#c87808);--gc:rgba(248,208,64,.35)}
+.go-moon{background:radial-gradient(circle at 35% 30%,#f0f0ff,#b8c0d8,#788898);--gc:rgba(184,192,216,.35)}
+.go-mars{background:radial-gradient(circle at 35% 30%,#ffb0a0,#d84020,#980c0c);--gc:rgba(216,64,32,.3)}
+.go-mercury{background:radial-gradient(circle at 35% 30%,#c8e8c8,#88b080,#406040);--gc:rgba(136,176,128,.3)}
+.go-jupiter{background:radial-gradient(circle at 35% 30%,#ffe8a0,#d0a040,#885010);--gc:rgba(208,160,64,.35)}
+.go-venus{background:radial-gradient(circle at 35% 30%,#fff0e8,#f0c890,#b88050);--gc:rgba(240,200,144,.35)}
+.go-saturn{background:radial-gradient(circle at 35% 30%,#e8e0c0,#b0a870,#685830);--gc:rgba(176,168,112,.3)}
+.go-rahu{background:radial-gradient(circle at 35% 30%,#909098,#585868,#282838);--gc:rgba(88,88,104,.3)}
+.go-ketu{background:radial-gradient(circle at 35% 30%,#c09888,#906050,#501818);--gc:rgba(144,96,80,.3)}
+
+/* ═══════════════════════════════════════
+   KUNDLI / BIRTH CHART SHOWCASE
+═══════════════════════════════════════ */
+.kundli-sec{
+  background:var(--ivory);border-top:1px solid var(--border);
+  overflow:hidden;
+}
+.kundli-inner{
+  display:flex;align-items:center;gap:4rem;flex-wrap:wrap;
+  max-width:1100px;margin:0 auto;
+}
+.kundli-visual{flex-shrink:0;width:min(380px,90vw);position:relative}
+.kundli-glow{
+  position:absolute;inset:-40px;border-radius:50%;
+  background:radial-gradient(circle,rgba(212,150,14,.13),transparent 65%);
+  animation:bloomBreath 5s ease-in-out infinite;pointer-events:none;
+}
+.kundli-text{flex:1;min-width:280px}
+.kundli-points{display:flex;flex-direction:column;gap:1.1rem;margin-top:1.6rem}
+.kundli-point{display:flex;gap:1rem;align-items:flex-start}
+.kp-icon{
+  width:38px;height:38px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+  background:linear-gradient(var(--cream2),var(--cream2)) padding-box,
+             linear-gradient(135deg,var(--g4),var(--s2)) border-box;
+  border:1.5px solid transparent;box-shadow:0 3px 12px var(--glow);
+}
+.kp-text{font-size:.88rem;color:var(--mid);line-height:2.2}
+.kp-text b{color:var(--dark)}
+
+/* ═══════════════════════════════════════
+   DOSHA / REMEDY SECTION
+═══════════════════════════════════════ */
+.dosha-sec{
+  background:linear-gradient(150deg,var(--night1) 0%,var(--night2) 45%,var(--night3) 100%);
+  color:var(--cream);position:relative;overflow:hidden;
+  border-top:3px solid;
+  border-image:linear-gradient(90deg,transparent,var(--g4),var(--s2),var(--g4),transparent) 1;
+}
+.dosha-sec::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 50% at 80% 20%,rgba(212,150,14,.08),transparent 60%),
+    radial-gradient(ellipse 60% 45% at 15% 85%,rgba(224,112,16,.06),transparent 60%);
+  pointer-events:none;
+}
+.dosha-sec .sec-kicker{color:var(--g4)}
+.dosha-sec .sec-h{color:var(--cream)}
+.dosha-sec .sec-rule::before,.dosha-sec .sec-rule::after{background:linear-gradient(90deg,transparent,rgba(245,200,66,.4),transparent)}
+.dosha-sec .sec-rule-dot{color:var(--g4)}
+.dosha-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1.6rem;max-width:1100px;margin:0 auto;position:relative;z-index:1;
+}
+@media(max-width:900px){
+  .dosha-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:560px){
+  .dosha-grid{grid-template-columns:1fr}
+}
+.dosha-card{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(212,150,14,.2);
+  padding:2rem;position:relative;overflow:hidden;
+  transition:all .35s;
+}
+.dosha-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(212,150,14,.08),transparent 60%);
+  opacity:0;transition:opacity .35s;
+}
+.dosha-card:hover{border-color:rgba(245,200,66,.5);transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.3)}
+.dosha-card:hover::before{opacity:1}
+.dosha-icon{font-size:2.2rem;margin-bottom:1rem;display:block;position:relative;z-index:1}
+.dosha-name{font-size:1rem;font-weight:700;color:var(--g4);margin-bottom:.6rem;line-height:1.9;position:relative;z-index:1}
+.dosha-desc{font-size:.85rem;color:rgba(253,248,240,.65);line-height:2.4;position:relative;z-index:1}
+
+/* ═══════════════════════════════════════
+   PANCHANG / DAILY WIDGET
+═══════════════════════════════════════ */
+.panchang-sec{
+  background:linear-gradient(160deg,var(--cream2),var(--paper));
+  border-top:1px solid var(--border);
+}
+.panchang-card{
+  max-width:880px;margin:0 auto;
+  background:var(--ivory);
+  border:1px solid var(--border2);
+  box-shadow:0 20px 60px rgba(184,121,12,.12);
+  position:relative;overflow:hidden;
+}
+.panchang-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,var(--s1),var(--g3),var(--g4),var(--s2));
+  background-size:200% 100%;
+  animation:panchangShimmer 4s linear infinite;
+}
+@keyframes panchangShimmer{from{background-position:0% 0}to{background-position:200% 0}}
+.panchang-head{
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+  padding:1.6rem 2rem;border-bottom:1px solid var(--border);
+  background:linear-gradient(135deg,rgba(212,150,14,.05),transparent);
+}
+.panchang-title{font-size:1.05rem;font-weight:700;color:var(--dark);line-height:1.9}
+.panchang-date{font-family:'Cormorant Garamond',serif;font-size:.85rem;color:var(--soft);letter-spacing:.08em}
+.panchang-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:0;
+}
+.panchang-item{
+  padding:1.4rem 1.6rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border);
+  transition:background .25s;
+}
+.panchang-item:nth-child(3n){border-right:none}
+.panchang-item:nth-last-child(-n+3){border-bottom:none}
+.panchang-item:hover{background:rgba(212,150,14,.05)}
+.panchang-label{font-size:.7rem;color:var(--soft);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.4rem}
+.panchang-value{font-size:1rem;font-weight:700;color:var(--dark);line-height:1.8}
+.panchang-value span{
+  background:linear-gradient(130deg,var(--s2),var(--g3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  display:inline-block;padding:.02em .02em .1em;
+}
+.panchang-note{
+  padding:1.2rem 2rem;text-align:center;font-size:.82rem;color:var(--soft);
+  font-family:'Cormorant Garamond',serif;font-style:italic;letter-spacing:.04em;
+  border-top:1px solid var(--border);
+}
+
+
+.process-sec{background:var(--ivory);border-top:1px solid var(--border)}
+.process-steps{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:0;max-width:920px;margin:0 auto;
+  position:relative;
+}
+.process-steps::before{
+  content:'';position:absolute;top:48px;left:10%;right:10%;height:1px;
+  background:linear-gradient(90deg,transparent,var(--border2),transparent);
+  z-index:0;
+}
+.proc-step{
+  padding:2.5rem 1.5rem;text-align:center;position:relative;z-index:1;
+  transition:transform .3s;
+}
+.proc-step:hover{transform:translateY(-5px)}
+.proc-num-wrap{
+  width:64px;height:64px;border-radius:50%;margin:0 auto 1.2rem;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(var(--ivory),var(--ivory)) padding-box,
+             linear-gradient(135deg,var(--g4),var(--s2)) border-box;
+  border:2px solid transparent;
+  box-shadow:0 6px 24px var(--glow);
+  position:relative;
+}
+.proc-num-wrap::before{
+  content:'';position:absolute;inset:-6px;border-radius:50%;
+  border:1px dashed rgba(184,121,12,.2);
+  animation:prSpin 12s linear infinite;
+}
+.proc-num{
+  font-family:'Cinzel Decorative',serif;font-size:1.5rem;font-weight:900;
+  background:linear-gradient(130deg,var(--s2),var(--g3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  display:inline-block;padding:.02em .04em .1em;
+}
+.proc-title{font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:.5rem;line-height:2}
+.proc-desc{font-size:.85rem;color:var(--mid);line-height:2.4}
+
+/* ═══════════════════════════════════════
+   TESTIMONIALS
+═══════════════════════════════════════ */
+.testi-sec{
+  background:linear-gradient(160deg,var(--cream2),var(--paper));
+  border-top:1px solid var(--border);
+}
+.testi-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+  gap:1.8rem;max-width:1040px;margin:0 auto;
+}
+.testi-card{
+  background:var(--ivory);border:1px solid var(--border);
+  padding:2.2rem;position:relative;
+  box-shadow:0 4px 24px rgba(184,121,12,.06);
+  transition:all .35s;
+}
+.testi-card::before{
+  content:'\201C';
+  position:absolute;top:.5rem;left:1rem;
+  font-family:'Cormorant Garamond',serif;font-size:4rem;
+  color:rgba(184,121,12,.12);line-height:1;pointer-events:none;
+}
+.testi-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(184,121,12,.13);border-color:var(--g3)}
+.testi-stars{color:var(--g3);letter-spacing:.1em;margin-bottom:.9rem;font-size:.95rem}
+.testi-text{font-size:.88rem;color:var(--mid);line-height:2.6;margin-bottom:1.4rem;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:.9rem}
+.testi-av{
+  width:42px;height:42px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,var(--s2),var(--g3));
+  display:flex;align-items:center;justify-content:center;
+  color:var(--ivory);font-size:.75rem;font-weight:700;
+}
+.testi-name{font-size:.88rem;font-weight:700;color:var(--dark)}
+.testi-loc{font-size:.74rem;color:var(--soft);margin-top:.1rem}
+
+/* ═══════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════ */
+.contact-sec{
+  background:linear-gradient(150deg,#1c120a 0%,#2e1a08 40%,#1c120a 100%);
+  border-top:3px solid;
+  border-image:linear-gradient(90deg,transparent,var(--g4),var(--s2),var(--g4),transparent) 1;
+  color:var(--cream);
+  position:relative;overflow:hidden;
+}
+.contact-sec::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 30%,rgba(212,150,14,.07),transparent 65%),
+    radial-gradient(ellipse 50% 40% at 10% 80%,rgba(224,112,16,.05),transparent 60%);
+  pointer-events:none;
+}
+.contact-sec .sec-kicker{color:var(--g4)}
+.contact-sec .sec-h{color:var(--cream)}
+.contact-sec .sec-rule::before,.contact-sec .sec-rule::after{background:linear-gradient(90deg,transparent,rgba(245,200,66,.4),transparent)}
+.contact-sec .sec-rule-dot{color:var(--g4)}
+.contact-quote{
+  text-align:center;margin-bottom:.4rem;
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:clamp(1.1rem,2.6vw,1.6rem);color:var(--g4);line-height:1.8;
+}
+.contact-sub{
+  text-align:center;font-size:.85rem;
+  color:rgba(253,248,240,.45);letter-spacing:.1em;margin-bottom:3rem;
+}
+.contact-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:1.4rem;max-width:880px;margin:0 auto 2.5rem;
+}
+.contact-card{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(212,150,14,.2);
+  padding:1.8rem;display:flex;align-items:flex-start;gap:1.1rem;
+  transition:all .3s;position:relative;overflow:hidden;
+}
+.contact-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(212,150,14,.07),transparent 60%);
+  opacity:0;transition:opacity .3s;
+}
+.contact-card:hover{border-color:rgba(212,150,14,.5);transform:translateY(-3px)}
+.contact-card:hover::before{opacity:1}
+.c-icon{font-size:1.8rem;flex-shrink:0;margin-top:.1rem}
+.c-label{font-size:.7rem;color:rgba(253,248,240,.35);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.3rem}
+.c-val{font-size:.95rem;color:var(--cream);line-height:2}
+.c-val a{color:var(--g4);text-decoration:none;transition:color .25s}
+.c-val a:hover{color:var(--g5)}
+.consult-badges{display:flex;gap:.9rem;flex-wrap:wrap;justify-content:center;max-width:880px;margin:0 auto}
+.cbadge{
+  padding:.65rem 1.5rem;border:1px solid rgba(212,150,14,.3);
+  border-radius:999px;font-size:.84rem;color:var(--g4);
+  background:rgba(212,150,14,.06);letter-spacing:.05em;
+  transition:all .25s;
+}
+.cbadge:hover{background:rgba(212,150,14,.14);border-color:rgba(245,200,66,.5)}
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+footer{
+  background:linear-gradient(180deg,#1a0f06 0%,#0e0802 100%);
+  border-top:2px solid rgba(184,121,12,.35);
+  padding:3.5rem 2rem 2rem;text-align:center;
+  position:relative;overflow:hidden;
+}
+footer::before{
+  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:200px;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(212,150,14,.8),transparent);
+}
+.foot-logo-img{
+  width:72px;height:72px;object-fit:contain;border-radius:50%;
+  border:2px solid rgba(212,150,14,.5);background:rgba(255,255,255,.05);
+  margin:0 auto .8rem;display:block;
+  box-shadow:0 0 24px rgba(212,150,14,.3);
+}
+.foot-om{
+  display:inline-block;font-family:'Tiro Devanagari Hindi',serif;
+  font-size:2.8rem;
+  background:linear-gradient(160deg,var(--s2),var(--g3),var(--g4));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  padding:.05em .05em .15em;
+  animation:omGlow 4s ease-in-out infinite;margin-bottom:.4rem;
+}
+.foot-name{
+  font-size:.95rem;color:rgba(253,248,240,.8);line-height:2;margin-bottom:.4rem;
+  font-weight:600;letter-spacing:.03em;
+}
+.foot-tagline{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.88rem;color:rgba(212,150,14,.7);margin-bottom:1.2rem;letter-spacing:.08em;
+}
+.foot-divider{
+  width:min(280px,70vw);height:1px;margin:.8rem auto;
+  background:linear-gradient(90deg,transparent,rgba(184,121,12,.4),transparent);
+}
+.foot-links{
+  display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.2rem;
+}
+.foot-links a{
+  font-size:.75rem;color:rgba(253,248,240,.45);text-decoration:none;
+  letter-spacing:.08em;transition:color .25s;
+}
+.foot-links a:hover{color:var(--g4)}
+.foot-contact-row{
+  display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;
+  margin-bottom:1.2rem;
+}
+.foot-contact-item{
+  font-size:.8rem;color:rgba(253,248,240,.55);display:flex;align-items:center;gap:.4rem;
+}
+.foot-contact-item a{color:var(--g4);text-decoration:none;}
+.foot-copy{font-size:.7rem;color:rgba(253,248,240,.25);letter-spacing:.07em;margin-top:.4rem}
+
+/* ═══════════════════════════════════════
+   FAB
+═══════════════════════════════════════ */
+.fab{position:fixed;bottom:2rem;right:2rem;z-index:400;display:flex;flex-direction:column;gap:.8rem;align-items:flex-end}
+.fab-btn{
+  display:flex;align-items:center;gap:.6rem;
+  padding:.8rem 1.6rem;
+  background:linear-gradient(135deg,var(--s2),var(--g3));
+  color:var(--ivory);font-size:.85rem;text-decoration:none;
+  border-radius:999px;box-shadow:0 6px 28px rgba(212,150,14,.45);
+  transition:all .25s;animation:fabPop 3s ease-in-out infinite;
+}
+.fab-btn:hover{transform:scale(1.05);box-shadow:0 10px 36px rgba(212,150,14,.6)}
+@keyframes fabPop{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+.fab-wa{
+  width:48px;height:48px;border-radius:50%;
+  background:linear-gradient(135deg,#25d366,#128c7e);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;box-shadow:0 4px 18px rgba(37,211,102,.4);
+  text-decoration:none;transition:all .25s;
+}
+.fab-wa:hover{transform:scale(1.1);box-shadow:0 8px 28px rgba(37,211,102,.55)}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+@media(max-width:840px){
+  nav{padding:0 1.2rem}
+  .nav-links{display:none}
+  .about-inner{flex-direction:column;align-items:center;gap:3rem;text-align:center}
+  .stat-float{display:none}
+  .about-stats{justify-content:center}
+  .photo-wrap{margin:0 auto}
+  section{padding:4.5rem 1.2rem}
+  .process-steps::before{display:none}
+  .kundli-inner{flex-direction:column;text-align:center;gap:2.5rem}
+  .kundli-points{align-items:flex-start;text-align:left}
+  .panchang-item{border-right:1px solid var(--border)}
+  .panchang-item:nth-child(2n){border-right:none}
+  .panchang-item:nth-child(3),.panchang-item:nth-child(4){border-bottom:1px solid var(--border)}
+  .panchang-item:nth-last-child(-n+2){border-bottom:none}
+  .panchang-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+  html,body,a,button,.btn-gold,.btn-outline,.nav-cta{cursor:auto !important}
+  .cursor-dot,.cursor-ring{display:none !important}
+}
+</style>
+</head>
+<body>
+
+<div id="loader">
+  <div class="loader-orbit">
+    <div class="loader-ring"></div>
+    <div class="loader-ring r2"></div>
+    <div class="lo-planet"></div>
+    <div class="lo-planet lo2"></div>
+    <div class="lo-center"></div>
+  </div>
+</div>
+
+<!-- Custom cosmic cursor -->
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- Background layers -->
+<canvas id="bg-canvas"></canvas>
+<canvas id="stars-canvas"></canvas>
+<canvas id="mandala-canvas"></canvas>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">
+    <img src="WhatsApp_Image_2026-06-14_at_10_10_45_PM.jpeg" alt="Logo" style="height:48px;width:48px;object-fit:contain;border-radius:50%;border:1.5px solid rgba(184,121,12,0.4);background:#fff;flex-shrink:0;">
+    <span style="display:flex;flex-direction:column;line-height:1.3;">
+      <span style="font-size:.95rem;color:var(--dark);font-weight:800;letter-spacing:.01em;">पंडित भंवर पुरोहित</span>
+      <span style="font-size:.68rem;color:var(--s1);letter-spacing:.1em;font-style:italic;">ज्योतिषाचार्य</span>
+    </span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">परिचय</a></li>
+    <li><a href="#certs">प्रमाणपत्र</a></li>
+    <li><a href="#services">सेवाएँ</a></li>
+    <li><a href="#graha">नवग्रह</a></li>
+    <li><a href="#zodiac">राशि</a></li>
+    <li><a href="#dosha">दोष व उपाय</a></li>
+    <li><a href="#contact">संपर्क</a></li>
+  </ul>
+  <a href="tel:+919826157151" class="nav-cta">📞 अभी कॉल करें</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bloom b1"></div>
+  <div class="hero-bloom b2"></div>
+  <div class="hero-bloom b3"></div>
+
+  <!-- Decorative SVG mandalas -->
+  <svg class="hero-mandala" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="200" cy="200" r="190" stroke="#b8790c" stroke-width=".6"/>
+    <circle cx="200" cy="200" r="160" stroke="#b8790c" stroke-width=".4"/>
+    <circle cx="200" cy="200" r="130" stroke="#b8790c" stroke-width=".3"/>
+    <circle cx="200" cy="200" r="100" stroke="#b8790c" stroke-width=".3"/>
+    <circle cx="200" cy="200" r="70" stroke="#b8790c" stroke-width=".3"/>
+    <circle cx="200" cy="200" r="40" stroke="#b8790c" stroke-width=".5"/>
+    <!-- 12 radial lines -->
+    <line x1="200" y1="10" x2="200" y2="390" stroke="#b8790c" stroke-width=".3"/>
+    <line x1="10" y1="200" x2="390" y2="200" stroke="#b8790c" stroke-width=".3"/>
+    <line x1="53" y1="53" x2="347" y2="347" stroke="#b8790c" stroke-width=".3"/>
+    <line x1="347" y1="53" x2="53" y2="347" stroke="#b8790c" stroke-width=".3"/>
+    <line x1="200" y1="10" x2="200" y2="390" stroke="#b8790c" stroke-width=".3" transform="rotate(30 200 200)"/>
+    <line x1="200" y1="10" x2="200" y2="390" stroke="#b8790c" stroke-width=".3" transform="rotate(60 200 200)"/>
+    <line x1="200" y1="10" x2="200" y2="390" stroke="#b8790c" stroke-width=".3" transform="rotate(15 200 200)"/>
+    <line x1="200" y1="10" x2="200" y2="390" stroke="#b8790c" stroke-width=".3" transform="rotate(45 200 200)"/>
+    <line x1="200" y1="10" x2="200" y2="390" stroke="#b8790c" stroke-width=".3" transform="rotate(75 200 200)"/>
+    <!-- Lotus petals at 30° intervals -->
+    <ellipse cx="200" cy="115" rx="12" ry="28" fill="#b8790c" opacity=".3" transform="rotate(0 200 200)"/>
+    <ellipse cx="200" cy="115" rx="12" ry="28" fill="#b8790c" opacity=".3" transform="rotate(30 200 200)"/>
+    <ellipse cx="200" cy="115" rx="12" ry="28" fill="#b8790c" opacity=".3" transform="rotate(60 200 200)"/>
+    <ellipse cx="200" cy="115" rx="12" ry="28" fill="#b8790c" opacity=".3" transform="rotate(90 200 200)"/>
+    <ellipse cx="200" cy="115" rx="12" ry="28" fill="#b8790c" opacity=".3" transform="rotate(120 200 200)"/>
+    <ellipse cx="200" cy="115" rx="12" ry="28" fill="#b8790c" opacity=".3" transform="rotate(150 200 200)"/>
+    <ellipse cx="200" cy="115" rx="12" ry="28" fill="#b8790c" opacity=".3" transform="rotate(180 200 200)"/>
+    <ellipse cx="200" cy="115" rx="12" ry="28" fill="#b8790c" opacity=".3" transform="rotate(210 200 200)"/>
+    <ellipse cx="200" cy="115" rx="12" ry="28" fill="#b8790c" opacity=".3" transform="rotate(240 200 200)"/>
+    <ellipse cx="200" cy="115" rx="12" ry="28" fill="#b8790c" opacity=".3" transform="rotate(270 200 200)"/>
+    <ellipse cx="200" cy="115" rx="12" ry="28" fill="#b8790c" opacity=".3" transform="rotate(300 200 200)"/>
+    <ellipse cx="200" cy="115" rx="12" ry="28" fill="#b8790c" opacity=".3" transform="rotate(330 200 200)"/>
+    <!-- Inner star -->
+    <polygon points="200,170 207,190 228,190 212,202 218,223 200,211 182,223 188,202 172,190 193,190" fill="#b8790c" opacity=".4"/>
+  </svg>
+
+  <svg class="hero-mandala2" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="150" cy="150" r="140" stroke="#d4960e" stroke-width=".5" stroke-dasharray="4 4"/>
+    <circle cx="150" cy="150" r="110" stroke="#d4960e" stroke-width=".4"/>
+    <circle cx="150" cy="150" r="80" stroke="#d4960e" stroke-width=".4" stroke-dasharray="3 3"/>
+    <circle cx="150" cy="150" r="50" stroke="#d4960e" stroke-width=".5"/>
+    <!-- Outer dots -->
+    <circle cx="150" cy="10" r="3" fill="#d4960e" opacity=".5" transform="rotate(0 150 150)"/>
+    <circle cx="150" cy="10" r="3" fill="#d4960e" opacity=".5" transform="rotate(30 150 150)"/>
+    <circle cx="150" cy="10" r="3" fill="#d4960e" opacity=".5" transform="rotate(60 150 150)"/>
+    <circle cx="150" cy="10" r="3" fill="#d4960e" opacity=".5" transform="rotate(90 150 150)"/>
+    <circle cx="150" cy="10" r="3" fill="#d4960e" opacity=".5" transform="rotate(120 150 150)"/>
+    <circle cx="150" cy="10" r="3" fill="#d4960e" opacity=".5" transform="rotate(150 150 150)"/>
+    <circle cx="150" cy="10" r="3" fill="#d4960e" opacity=".5" transform="rotate(180 150 150)"/>
+    <circle cx="150" cy="10" r="3" fill="#d4960e" opacity=".5" transform="rotate(210 150 150)"/>
+    <circle cx="150" cy="10" r="3" fill="#d4960e" opacity=".5" transform="rotate(240 150 150)"/>
+    <circle cx="150" cy="10" r="3" fill="#d4960e" opacity=".5" transform="rotate(270 150 150)"/>
+    <circle cx="150" cy="10" r="3" fill="#d4960e" opacity=".5" transform="rotate(300 150 150)"/>
+    <circle cx="150" cy="10" r="3" fill="#d4960e" opacity=".5" transform="rotate(330 150 150)"/>
+  </svg>
+
+  <span class="hero-lotus l1">🪷</span>
+  <span class="hero-lotus l2">✨</span>
+  <span class="hero-lotus l3">🌸</span>
+  <span class="hero-lotus l4">⭐</span>
+
+  <span class="hero-spark sp1">✦</span>
+  <span class="hero-spark sp2">✧</span>
+  <span class="hero-spark sp3">✦</span>
+  <span class="hero-spark sp4">✧</span>
+  <span class="hero-spark sp5">✦</span>
+  <span class="hero-spark sp6">✧</span>
+
+  <div class="hero-orbit">
+    <div class="orbit-dot" style="background:#f8d040;color:#f8d040"></div>
+  </div>
+  <div class="hero-orbit o2">
+    <div class="orbit-dot" style="background:#e07010;color:#e07010"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-om">ॐ</div>
+    <div class="hero-eyebrow">विश्व प्रसिद्ध · World Renowned</div>
+    <div class="hero-name">पंडित भंवर पुरोहित</div>
+    <div class="hero-qual">केंद्रीय संस्कृत विद्यालय से ज्योतिष में डिप्लोमा एवं ज्योतिष में स्नातकोत्तर डिग्री</div>
+    <div class="hero-divider">
+      <div class="hero-divider-center">✦ &nbsp; ज्योतिषाचार्य &nbsp; ✦</div>
+    </div>
+    <div class="hero-subtitle">Jyotishacharya · Raipur, Chhattisgarh</div>
+    <p class="hero-tagline">आपकी समस्या – हमारा समाधान<br>१५+ वर्षों का अनुभव · कुंडली · वास्तु · ग्रह दोष निवारण</p>
+    <div class="hero-badges">
+      <div class="hero-badge"><span class="gem">✦</span> M.A. Jyotish · IGNOU</div>
+      <div class="hero-badge"><span class="gem">✦</span> Vastu-Jyotish Diploma · CSU Delhi</div>
+      <div class="hero-badge"><span class="gem">✦</span> 15+ Years Experience</div>
+    </div>
+    <div class="hero-btns">
+      <a href="tel:+919826157151" class="btn-gold">📞 अभी कॉल करें</a>
+      <a href="#services" class="btn-outline">सेवाएँ देखें →</a>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>scroll</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</div>
+
+<!-- PLANET STRIP -->
+<div class="strip">
+  <div class="strip-inner" id="strip-inner">
+    <!-- Will be doubled by JS for seamless loop -->
+    <div class="planet-pill"><div class="porb sun" style="--d:4.2s;--dl:0s"></div><div class="pill-text"><span class="pill-hi">सूर्य</span><span class="pill-en">Sun</span></div></div>
+    <div class="planet-pill"><div class="porb moon" style="--d:5s;--dl:.5s"></div><div class="pill-text"><span class="pill-hi">चन्द्र</span><span class="pill-en">Moon</span></div></div>
+    <div class="planet-pill"><div class="porb mars" style="--d:4.5s;--dl:1s"></div><div class="pill-text"><span class="pill-hi">मंगल</span><span class="pill-en">Mars</span></div></div>
+    <div class="planet-pill"><div class="porb mercury" style="--d:5.5s;--dl:1.5s"></div><div class="pill-text"><span class="pill-hi">बुध</span><span class="pill-en">Mercury</span></div></div>
+    <div class="planet-pill"><div class="porb jupiter" style="--d:4.8s;--dl:2s"></div><div class="pill-text"><span class="pill-hi">गुरु</span><span class="pill-en">Jupiter</span></div></div>
+    <div class="planet-pill"><div class="porb venus" style="--d:5.2s;--dl:2.5s"></div><div class="pill-text"><span class="pill-hi">शुक्र</span><span class="pill-en">Venus</span></div></div>
+    <div class="planet-pill"><div class="porb saturn" style="--d:6s;--dl:3s"></div><div class="pill-text"><span class="pill-hi">शनि</span><span class="pill-en">Saturn</span></div></div>
+    <div class="planet-pill"><div class="porb rahu" style="--d:5.8s;--dl:3.5s"></div><div class="pill-text"><span class="pill-hi">राहु</span><span class="pill-en">Rahu</span></div></div>
+    <div class="planet-pill"><div class="porb ketu" style="--d:4.6s;--dl:4s"></div><div class="pill-text"><span class="pill-hi">केतु</span><span class="pill-en">Ketu</span></div></div>
+    <!-- Duplicated for seamless -->
+    <div class="planet-pill"><div class="porb sun" style="--d:4.2s;--dl:0s"></div><div class="pill-text"><span class="pill-hi">सूर्य</span><span class="pill-en">Sun</span></div></div>
+    <div class="planet-pill"><div class="porb moon" style="--d:5s;--dl:.5s"></div><div class="pill-text"><span class="pill-hi">चन्द्र</span><span class="pill-en">Moon</span></div></div>
+    <div class="planet-pill"><div class="porb mars" style="--d:4.5s;--dl:1s"></div><div class="pill-text"><span class="pill-hi">मंगल</span><span class="pill-en">Mars</span></div></div>
+    <div class="planet-pill"><div class="porb mercury" style="--d:5.5s;--dl:1.5s"></div><div class="pill-text"><span class="pill-hi">बुध</span><span class="pill-en">Mercury</span></div></div>
+    <div class="planet-pill"><div class="porb jupiter" style="--d:4.8s;--dl:2s"></div><div class="pill-text"><span class="pill-hi">गुरु</span><span class="pill-en">Jupiter</span></div></div>
+    <div class="planet-pill"><div class="porb venus" style="--d:5.2s;--dl:2.5s"></div><div class="pill-text"><span class="pill-hi">शुक्र</span><span class="pill-en">Venus</span></div></div>
+    <div class="planet-pill"><div class="porb saturn" style="--d:6s;--dl:3s"></div><div class="pill-text"><span class="pill-hi">शनि</span><span class="pill-en">Saturn</span></div></div>
+    <div class="planet-pill"><div class="porb rahu" style="--d:5.8s;--dl:3.5s"></div><div class="pill-text"><span class="pill-hi">राहु</span><span class="pill-en">Rahu</span></div></div>
+    <div class="planet-pill"><div class="porb ketu" style="--d:4.6s;--dl:4s"></div><div class="pill-text"><span class="pill-hi">केतु</span><span class="pill-en">Ketu</span></div></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about-sec" id="about">
+  <div class="about-inner">
+    <div class="photo-wrap rv-left">
+      <div class="photo-glow"></div>
+      <div class="photo-ring-set">
+        <div class="pr pr1"></div>
+        <div class="pr pr2"></div>
+      </div>
+      <div class="photo-frame">
+        <div class="photo-placeholder">
+          <span class="ph-om">ॐ</span>
+          <span>पंडित भंवर पुरोहित</span>
+        </div>
+      </div>
+      <div class="stat-float sf1">
+        <div class="stat-n">15+</div>
+        <div class="stat-l">वर्षों का अनुभव</div>
+      </div>
+      <div class="stat-float sf2">
+        <div class="stat-n">10K+</div>
+        <div class="stat-l">संतुष्ट परिवार</div>
+      </div>
+    </div>
+
+    <div class="about-text rv-right">
+      <div class="about-badges">
+        <div class="abadge">✦ M.A. ज्योतिष (IGNOU)</div>
+        <div class="abadge">✦ वास्तु-ज्योतिष डिप्लोमा</div>
+        <div class="abadge">✦ केन्द्रीय संस्कृत विश्वविद्यालय</div>
+      </div>
+      <div class="about-h">आपका विश्वसनीय<br><span class="gt">ज्योतिष मार्गदर्शक</span></div>
+      <p class="about-p">पंडित भंवर पुरोहित इंदिरा गांधी राष्ट्रीय मुक्त विश्वविद्यालय (IGNOU) से M.A. ज्योतिष (प्रथम श्रेणी) एवं केन्द्रीय संस्कृत विश्वविद्यालय, दिल्ली से वास्तु-ज्योतिष डिप्लोमा प्राप्त प्रमाणित ज्योतिषाचार्य हैं। उनकी सटीक भविष्यवाणियाँ और प्रभावी समाधान हजारों परिवारों के जीवन को सुखमय बना चुके हैं।</p>
+      <div class="about-stats">
+        <div class="ast rv"><div class="ast-n">15+</div><div class="ast-l">वर्षों का अनुभव</div></div>
+        <div class="ast rv"><div class="ast-n">10K+</div><div class="ast-l">संतुष्ट परिवार</div></div>
+        <div class="ast rv"><div class="ast-n">2</div><div class="ast-l">विश्वविद्यालय<br>प्रमाणपत्र</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATES -->
+<section class="cert-sec" id="certs">
+  <div class="sec-head rv">
+    <span class="sec-kicker">शैक्षणिक योग्यता</span>
+    <div class="sec-h">प्रमाणपत्र एवं <span class="gt">डिग्री</span></div>
+    <div class="sec-rule"><div class="sec-rule-dot">✦ ✦ ✦</div></div>
+  </div>
+  <div class="cert-grid">
+    <div class="cert-card rv">
+      <div class="cert-inner">
+        <img src="C:\Users\nayan\Downloads\WhatsApp Image 2026-05-16 at 2.04.17 PM.jpeg" alt="IGNOU M.A. Jyotish" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div style="display:none;width:100%;height:220px;align-items:center;justify-content:center;background:linear-gradient(135deg,#fff9ee,#fef0d0);font-size:4rem;">🎓</div>
+        <div class="cert-shine"></div>
+        <div class="cert-corner tl"></div><div class="cert-corner tr"></div>
+        <div class="cert-corner bl"></div><div class="cert-corner br"></div>
+        <div class="cert-label">
+          <div class="cert-t">Master of Arts in Jyotish</div>
+          <div class="cert-s">INDIRA GANDHI NATIONAL OPEN UNIVERSITY · First Division · 2024</div>
+        </div>
+      </div>
+    </div>
+    <div class="cert-card rv">
+      <div class="cert-inner">
+        <img src="C:\Users\nayan\Downloads\WhatsApp Image 2026-05-16 at 2.07.27 PM.jpeg" alt="CSU Vastu-Jyotish Diploma" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div style="display:none;width:100%;height:220px;align-items:center;justify-content:center;background:linear-gradient(135deg,#fff9ee,#fef0d0);font-size:4rem;">📜</div>
+        <div class="cert-shine"></div>
+        <div class="cert-corner tl"></div><div class="cert-corner tr"></div>
+        <div class="cert-corner bl"></div><div class="cert-corner br"></div>
+        <div class="cert-label">
+          <div class="cert-t">वास्तु-ज्योतिष <span class="gt">डिप्लोमा</span></div>
+          <div class="cert-s">CENTRAL SANSKRIT UNIVERSITY, DELHI · 2023</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMS -->
+<section class="prob-sec">
+  <div class="sec-head rv">
+    <span class="sec-kicker">क्या आप परेशान हैं?</span>
+    <div class="sec-h">जीवन की <span class="gt">समस्याएँ</span></div>
+    <div class="sec-rule"><div class="sec-rule-dot">✦ ✦ ✦</div></div>
+  </div>
+  <div class="prob-grid">
+    <div class="prob-card rv"><span class="prob-icon">💸</span><p class="prob-text">बार-बार धन हानि और आर्थिक संकट?</p></div>
+    <div class="prob-card rv"><span class="prob-icon">💍</span><p class="prob-text">विवाह में देरी या दांपत्य में समस्या?</p></div>
+    <div class="prob-card rv"><span class="prob-icon">👶</span><p class="prob-text">संतान सुख में बाधा आ रही है?</p></div>
+    <div class="prob-card rv"><span class="prob-icon">💼</span><p class="prob-text">नौकरी या व्यापार में रुकावट?</p></div>
+    <div class="prob-card rv"><span class="prob-icon">🌙</span><p class="prob-text">अज्ञात कारणों से लगातार असफलता?</p></div>
+    <div class="prob-card rv"><span class="prob-icon">🏠</span><p class="prob-text">घर में कलह व नकारात्मक ऊर्जा?</p></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="serv-sec" id="services">
+  <div class="sec-head rv">
+    <span class="sec-kicker">हमारी विशेषज्ञता</span>
+    <div class="sec-h">ज्योतिष <span class="gt">सेवाएँ</span></div>
+    <div class="sec-rule"><div class="sec-rule-dot">✦ ✦ ✦</div></div>
+  </div>
+  <div class="serv-grid">
+    <div class="serv-card rv"><div class="serv-icon-ring">📜</div><div class="serv-name">जन्म कुंडली विश्लेषण</div><p class="serv-desc">आपकी जन्म कुंडली का सम्पूर्ण विश्लेषण — ग्रहों की स्थिति, दशाएँ और जीवन के हर पहलू की विस्तृत जानकारी।</p></div>
+    <div class="serv-card rv"><div class="serv-icon-ring">💑</div><div class="serv-name">कुंडली मिलान</div><p class="serv-desc">विवाह के लिए सटीक गुण मिलान, मांगलिक दोष विचार और वैवाहिक सुख का आकलन।</p></div>
+    <div class="serv-card rv"><div class="serv-icon-ring">🐍</div><div class="serv-name">कालसर्प दोष निवारण</div><p class="serv-desc">कालसर्प, पितृ दोष एवं सभी ग्रह दोषों का वैदिक विधि से सम्पूर्ण निवारण।</p></div>
+    <div class="serv-card rv"><div class="serv-icon-ring">❤️</div><div class="serv-name">प्रेम व दांपत्य समाधान</div><p class="serv-desc">प्रेम विवाह, दांपत्य जीवन की समस्याओं का सटीक और प्रभावी ज्योतिषीय समाधान।</p></div>
+    <div class="serv-card rv"><div class="serv-icon-ring">🏠</div><div class="serv-name">वास्तु परामर्श</div><p class="serv-desc">घर एवं व्यापारिक स्थान का वास्तु विश्लेषण और प्रमाणित वास्तु विशेषज्ञ मार्गदर्शन।</p></div>
+    <div class="serv-card rv"><div class="serv-icon-ring">📈</div><div class="serv-name">व्यापार व करियर मार्गदर्शन</div><p class="serv-desc">व्यापार वृद्धि, करियर चयन और आर्थिक उन्नति के लिए ग्रहों के आधार पर विशेष मार्गदर्शन।</p></div>
+    <div class="serv-card rv"><div class="serv-icon-ring">💎</div><div class="serv-name">रत्न परामर्श</div><p class="serv-desc">जन्म कुंडली के अनुसार उचित रत्न का चयन, शुद्धि विधि और धारण की सही विधि।</p></div>
+    <div class="serv-card rv"><div class="serv-icon-ring">🌟</div><div class="serv-name">वार्षिक भविष्यफल</div><p class="serv-desc">सम्पूर्ण वर्ष का विस्तृत भविष्यफल — शुभ अवसर, सावधानियाँ और ग्रहों के प्रभाव।</p></div>
+  </div>
+</section>
+
+<!-- NAVAGRAHA -->
+<section class="graha-sec" id="graha">
+  <div class="sec-head rv">
+    <span class="sec-kicker">वैदिक ज्योतिष</span>
+    <div class="sec-h">नवग्रह — <span class="gt">नौ ग्रहों</span> का प्रभाव</div>
+    <div class="sec-rule"><div class="sec-rule-dot">✦ ✦ ✦</div></div>
+  </div>
+  <div class="graha-grid">
+    <div class="graha-card rv"><div class="graha-orb go-sun"><span class="graha-sym">☀</span></div><div class="graha-name">सूर्य</div><div class="graha-en">Sun · Surya</div><p class="graha-desc">आत्मा, पिता व आत्मविश्वास के कारक</p></div>
+    <div class="graha-card rv"><div class="graha-orb go-moon"><span class="graha-sym">☽</span></div><div class="graha-name">चन्द्र</div><div class="graha-en">Moon · Chandra</div><p class="graha-desc">मन, भावनाएँ व माता के कारक</p></div>
+    <div class="graha-card rv"><div class="graha-orb go-mars"><span class="graha-sym">♂</span></div><div class="graha-name">मंगल</div><div class="graha-en">Mars · Mangal</div><p class="graha-desc">शक्ति, साहस व भाई-बहन के कारक</p></div>
+    <div class="graha-card rv"><div class="graha-orb go-mercury"><span class="graha-sym">☄</span></div><div class="graha-name">बुध</div><div class="graha-en">Mercury · Budh</div><p class="graha-desc">बुद्धि, वाणी व व्यापार के कारक</p></div>
+    <div class="graha-card rv"><div class="graha-orb go-jupiter"><span class="graha-sym">♃</span></div><div class="graha-name">गुरु</div><div class="graha-en">Jupiter · Guru</div><p class="graha-desc">ज्ञान, धन व भाग्य के कारक</p></div>
+    <div class="graha-card rv"><div class="graha-orb go-venus"><span class="graha-sym">♀</span></div><div class="graha-name">शुक्र</div><div class="graha-en">Venus · Shukra</div><p class="graha-desc">प्रेम, सौंदर्य व वैवाहिक सुख के कारक</p></div>
+    <div class="graha-card rv"><div class="graha-orb go-saturn"><span class="graha-sym">♄</span></div><div class="graha-name">शनि</div><div class="graha-en">Saturn · Shani</div><p class="graha-desc">कर्म, अनुशासन व न्याय के कारक</p></div>
+    <div class="graha-card rv"><div class="graha-orb go-rahu"><span class="graha-sym">☊</span></div><div class="graha-name">राहु</div><div class="graha-en">Rahu</div><p class="graha-desc">माया, भ्रम व अकस्मात घटनाओं के कारक</p></div>
+    <div class="graha-card rv"><div class="graha-orb go-ketu"><span class="graha-sym">☋</span></div><div class="graha-name">केतु</div><div class="graha-en">Ketu</div><p class="graha-desc">मोक्ष, वैराग्य व आध्यात्म के कारक</p></div>
+  </div>
+</section>
+
+<!-- ZODIAC -->
+<section class="zodiac-sec" id="zodiac">
+  <div class="sec-head rv">
+    <span class="sec-kicker">राशि चक्र</span>
+    <div class="sec-h">बारह <span class="gt">राशियाँ</span></div>
+    <div class="sec-rule"><div class="sec-rule-dot">✦ ✦ ✦</div></div>
+  </div>
+  <div class="zodiac-canvas-wrap rv">
+    <div class="zodiac-glow"></div>
+    <canvas id="zodiacCanvas" width="600" height="600" style="max-width:min(600px,92vw);position:relative;z-index:1"></canvas>
+  </div>
+</section>
+
+<!-- KUNDLI CHART SHOWCASE -->
+<section class="kundli-sec">
+  <div class="sec-head rv">
+    <span class="sec-kicker">जन्म कुंडली</span>
+    <div class="sec-h">आपकी <span class="gt">जन्म कुंडली</span> क्या कहती है?</div>
+    <div class="sec-rule"><div class="sec-rule-dot">✦ ✦ ✦</div></div>
+  </div>
+  <div class="kundli-inner">
+    <div class="kundli-visual rv-left">
+      <div class="kundli-glow"></div>
+      <svg viewBox="0 0 400 400" style="position:relative;z-index:1;width:100%" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="10" width="380" height="380" fill="#fffdf7" stroke="#b8790c" stroke-width="2"/>
+        <line x1="10" y1="10" x2="390" y2="390" stroke="#b8790c" stroke-width="1.4"/>
+        <line x1="390" y1="10" x2="10" y2="390" stroke="#b8790c" stroke-width="1.4"/>
+        <line x1="200" y1="10" x2="10" y2="200" stroke="#b8790c" stroke-width="1.4"/>
+        <line x1="10" y1="200" x2="200" y2="390" stroke="#b8790c" stroke-width="1.4"/>
+        <line x1="200" y1="390" x2="390" y2="200" stroke="#b8790c" stroke-width="1.4"/>
+        <line x1="390" y1="200" x2="200" y2="10" stroke="#b8790c" stroke-width="1.4"/>
+        <!-- House labels -->
+        <text x="200" y="65" text-anchor="middle" font-size="13" fill="#5a3a18" font-family="serif">1 · लग्न</text>
+        <text x="100" y="65" text-anchor="middle" font-size="13" fill="#8b5e2a" font-family="serif">12</text>
+        <text x="100" y="170" text-anchor="middle" font-size="13" fill="#8b5e2a" font-family="serif">11</text>
+        <text x="55" y="130" text-anchor="middle" font-size="13" fill="#8b5e2a" font-family="serif">2</text>
+        <text x="55" y="270" text-anchor="middle" font-size="13" fill="#8b5e2a" font-family="serif">3</text>
+        <text x="100" y="240" text-anchor="middle" font-size="13" fill="#8b5e2a" font-family="serif">4</text>
+        <text x="100" y="345" text-anchor="middle" font-size="13" fill="#8b5e2a" font-family="serif">5</text>
+        <text x="200" y="345" text-anchor="middle" font-size="13" fill="#8b5e2a" font-family="serif">6</text>
+        <text x="300" y="345" text-anchor="middle" font-size="13" fill="#8b5e2a" font-family="serif">7</text>
+        <text x="300" y="240" text-anchor="middle" font-size="13" fill="#8b5e2a" font-family="serif">8</text>
+        <text x="345" y="270" text-anchor="middle" font-size="13" fill="#8b5e2a" font-family="serif">9</text>
+        <text x="345" y="130" text-anchor="middle" font-size="13" fill="#8b5e2a" font-family="serif">10</text>
+        <text x="300" y="65" text-anchor="middle" font-size="13" fill="#8b5e2a" font-family="serif">12</text>
+        <!-- Planet glyphs placed -->
+        <text x="200" y="100" text-anchor="middle" font-size="20" fill="#e07010">☉</text>
+        <text x="130" y="120" text-anchor="middle" font-size="20" fill="#788898">☽</text>
+        <text x="270" y="120" text-anchor="middle" font-size="20" fill="#d84020">♂</text>
+        <text x="60" y="200" text-anchor="middle" font-size="20" fill="#d0a040">♃</text>
+        <text x="340" y="200" text-anchor="middle" font-size="20" fill="#b88050">♀</text>
+        <text x="130" y="300" text-anchor="middle" font-size="20" fill="#406040">☄</text>
+        <text x="270" y="300" text-anchor="middle" font-size="20" fill="#685830">♄</text>
+        <text x="200" y="240" text-anchor="middle" font-size="22" fill="#b8790c" font-weight="bold">ॐ</text>
+        <!-- subtle rotating sparkle accents -->
+        <g opacity=".5">
+          <circle cx="200" cy="200" r="3" fill="#f5c842"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.5s" repeatCount="indefinite"/></circle>
+        </g>
+      </svg>
+    </div>
+    <div class="kundli-text rv-right">
+      <div class="about-h" style="font-size:clamp(1.3rem,3vw,2rem)">ग्रहों की <span class="gt2">सटीक स्थिति</span><br>जो बदल सकती है आपका भविष्य</div>
+      <p class="about-p" style="margin-bottom:0">जन्म कुंडली आपके जन्म समय के अनुसार बारह भावों में ग्रहों की स्थिति दर्शाती है। प्रत्येक भाव जीवन के एक पहलू — धन, विवाह, करियर, स्वास्थ्य — का प्रतिनिधित्व करता है। पंडित जी इन स्थितियों का गहन अध्ययन कर आपकी समस्याओं का मूल कारण और सटीक समाधान बताते हैं।</p>
+      <div class="kundli-points">
+        <div class="kundli-point rv"><div class="kp-icon">🏠</div><div class="kp-text"><b>द्वादश भाव विश्लेषण</b> — जीवन के हर क्षेत्र की विस्तृत जानकारी</div></div>
+        <div class="kundli-point rv"><div class="kp-icon">🪐</div><div class="kp-text"><b>ग्रह दशा एवं अंतर्दशा</b> — कब आएगा शुभ समय, कब रहें सावधान</div></div>
+        <div class="kundli-point rv"><div class="kp-icon">🔮</div><div class="kp-text"><b>योग एवं दोष पहचान</b> — राजयोग से कालसर्प तक सम्पूर्ण विश्लेषण</div></div>
+        <div class="kundli-point rv"><div class="kp-icon">🛕</div><div class="kp-text"><b>वैदिक उपाय व मंत्र</b> — ग्रह शांति हेतु प्रमाणित व प्रभावी उपाय</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PANCHANG WIDGET -->
+<section class="panchang-sec">
+  <div class="sec-head rv">
+    <span class="sec-kicker">आज का पंचांग</span>
+    <div class="sec-h">दैनिक <span class="gt">पंचांग</span></div>
+    <div class="sec-rule"><div class="sec-rule-dot">✦ ✦ ✦</div></div>
+  </div>
+  <div class="panchang-card rv">
+    <div class="panchang-head">
+      <div class="panchang-title">शुभ मुहूर्त एवं पंचांग जानकारी</div>
+      <div class="panchang-date" id="panchang-date">—</div>
+    </div>
+    <div class="panchang-grid">
+      <div class="panchang-item"><div class="panchang-label">तिथि</div><div class="panchang-value"><span>शुक्ल पक्ष</span></div></div>
+      <div class="panchang-item"><div class="panchang-label">नक्षत्र</div><div class="panchang-value"><span>रोहिणी</span></div></div>
+      <div class="panchang-item"><div class="panchang-label">योग</div><div class="panchang-value"><span>सिद्धि योग</span></div></div>
+      <div class="panchang-item"><div class="panchang-label">करण</div><div class="panchang-value"><span>बव</span></div></div>
+      <div class="panchang-item"><div class="panchang-label">राहु काल</div><div class="panchang-value"><span>दोपहर ⏱</span></div></div>
+      <div class="panchang-item"><div class="panchang-label">शुभ रंग</div><div class="panchang-value"><span>केसरिया</span></div></div>
+    </div>
+    <div class="panchang-note">अपनी सटीक जन्म कुंडली व व्यक्तिगत पंचांग के लिए पंडित जी से सीधा परामर्श लें ✦</div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-sec">
+  <div class="sec-head rv">
+    <span class="sec-kicker">सरल प्रक्रिया</span>
+    <div class="sec-h">परामर्श कैसे <span class="gt">प्राप्त करें</span></div>
+    <div class="sec-rule"><div class="sec-rule-dot">✦ ✦ ✦</div></div>
+  </div>
+  <div class="process-steps">
+    <div class="proc-step rv"><div class="proc-num-wrap"><span class="proc-num">१</span></div><div class="proc-title">संपर्क करें</div><p class="proc-desc">फोन या व्हाट्सएप पर संपर्क करें और अपनी समस्या बताएँ</p></div>
+    <div class="proc-step rv"><div class="proc-num-wrap"><span class="proc-num">२</span></div><div class="proc-title">जानकारी दें</div><p class="proc-desc">जन्म तिथि, समय और स्थान की जानकारी प्रदान करें</p></div>
+    <div class="proc-step rv"><div class="proc-num-wrap"><span class="proc-num">३</span></div><div class="proc-title">विश्लेषण</div><p class="proc-desc">पंडित जी आपकी कुंडली का विस्तृत विश्लेषण करेंगे</p></div>
+    <div class="proc-step rv"><div class="proc-num-wrap"><span class="proc-num">४</span></div><div class="proc-title">समाधान पाएँ</div><p class="proc-desc">सटीक उपाय और मार्गदर्शन प्राप्त करें, जीवन बदलें</p></div>
+  </div>
+</section>
+
+<!-- DOSHA & REMEDIES -->
+<section class="dosha-sec" id="dosha">
+  <div class="sec-wrap">
+    <div class="sec-head rv">
+      <span class="sec-kicker">वैदिक उपाय</span>
+      <div class="sec-h">प्रमुख <span class="gt2">दोष</span> एवं उनके <span class="gt2">उपाय</span></div>
+      <div class="sec-rule"><div class="sec-rule-dot">✦ ✦ ✦</div></div>
+    </div>
+    <div class="dosha-grid">
+      <div class="dosha-card rv"><span class="dosha-icon">🐍</span><div class="dosha-name">कालसर्प दोष</div><p class="dosha-desc">राहु-केतु के मध्य सभी ग्रहों के आने से जीवन में अनेक बाधाएँ आती हैं। नाग पूजा व विशेष मंत्र जाप से शांति संभव।</p></div>
+      <div class="dosha-card rv"><span class="dosha-icon">🔥</span><div class="dosha-name">मंगल दोष (मांगलिक)</div><p class="dosha-desc">विवाह में देरी व दांपत्य कलह का कारण। कुंडली मिलान व विशेष पूजा द्वारा प्रभाव कम किया जाता है।</p></div>
+      <div class="dosha-card rv"><span class="dosha-icon">🌑</span><div class="dosha-name">पितृ दोष</div><p class="dosha-desc">पूर्वजों की अतृप्त आत्माओं के कारण संतान, धन व स्वास्थ्य संबंधी समस्याएँ। श्राद्ध एवं तर्पण विधि से निवारण।</p></div>
+      <div class="dosha-card rv"><span class="dosha-icon">♄</span><div class="dosha-name">शनि साढ़ेसाती</div><p class="dosha-desc">शनि के गोचर से जीवन में संघर्ष बढ़ता है। शनि स्तोत्र, दान व रत्न धारण से कष्ट निवारण होता है।</p></div>
+      <div class="dosha-card rv"><span class="dosha-icon">💍</span><div class="dosha-name">गुरु चांडाल योग</div><p class="dosha-desc">गुरु-राहु के संयोग से निर्णय क्षमता प्रभावित होती है। विशेष यंत्र व मंत्र साधना से लाभ मिलता है।</p></div>
+      <div class="dosha-card rv"><span class="dosha-icon">🌗</span><div class="dosha-name">चन्द्र-ग्रहण दोष</div><p class="dosha-desc">मानसिक अशांति व निर्णय में भ्रम। चन्द्र शांति पूजा व रत्न परामर्श से मन को स्थिरता मिलती है।</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-sec" id="testimonials">
+  <div class="sec-head rv">
+    <span class="sec-kicker">संतुष्ट जातक</span>
+    <div class="sec-h">अनुभव और <span class="gt">समीक्षाएँ</span></div>
+    <div class="sec-rule"><div class="sec-rule-dot">✦ ✦ ✦</div></div>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card rv"><div class="testi-stars">★★★★★</div><p class="testi-text">पंडित जी की कुंडली मिलान की सलाह के बाद हमारा विवाह बहुत सुखमय हो गया। उनकी भविष्यवाणी एकदम सटीक निकली। परिवार में शांति और खुशहाली आई।</p><div class="testi-author"><div class="testi-av">र.श.</div><div><div class="testi-name">रमेश शर्मा</div><div class="testi-loc">रायपुर, छत्तीसगढ़</div></div></div></div>
+    <div class="testi-card rv"><div class="testi-stars">★★★★★</div><p class="testi-text">व्यापार में लगातार नुकसान हो रहा था। पंडित जी के वास्तु और ज्योतिष मार्गदर्शन के बाद व्यापार तेजी से बढ़ रहा है। हृदय से आभारी हूँ।</p><div class="testi-author"><div class="testi-av">सु.दे.</div><div><div class="testi-name">सुनीता देवी</div><div class="testi-loc">भिलाई, छत्तीसगढ़</div></div></div></div>
+    <div class="testi-card rv"><div class="testi-stars">★★★★★</div><p class="testi-text">कालसर्प दोष के निवारण के बाद जीवन में सकारात्मक बदलाव आया। पंडित जी का ज्ञान और अनुभव अतुलनीय है। नौकरी मिली, परिवार में सुख बढ़ा।</p><div class="testi-author"><div class="testi-av">अ.व.</div><div><div class="testi-name">अजय वर्मा</div><div class="testi-loc">बिलासपुर, छत्तीसगढ़</div></div></div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-sec" id="contact">
+  <div class="sec-wrap">
+    <div class="sec-head rv">
+      <span class="sec-kicker">आज ही संपर्क करें</span>
+      <div class="sec-h">संपर्क <span class="gt2">विवरण</span></div>
+      <div class="sec-rule"><div class="sec-rule-dot">✦ ✦ ✦</div></div>
+    </div>
+    <div class="contact-quote rv">🌟 "आपकी समस्या – हमारा समाधान" 🌟</div>
+    <div class="contact-sub rv">ऑनलाइन एवं ऑफलाइन परामर्श उपलब्ध</div>
+    <div class="contact-grid">
+      <div class="contact-card rv"><div class="c-icon">📞</div><div><div class="c-label">दूरभाष</div><div class="c-val"><a href="tel:+919826157151">+91 98261 57151</a></div></div></div>
+      <div class="contact-card rv"><div class="c-icon">📍</div><div><div class="c-label">स्थान</div><div class="c-val">जी 2/6, अवंति विहार कॉलोनी,<br>रायपुर (छ.ग.)</div></div></div>
+      <div class="contact-card rv"><div class="c-icon">🕐</div><div><div class="c-label">समय</div><div class="c-val">सुबह 11 बजे – शाम 6 बजे</div></div></div>
+    </div>
+    <div class="consult-badges rv">
+      <div class="cbadge">📱 व्हाट्सएप परामर्श</div>
+      <div class="cbadge">🖥️ ऑनलाइन वीडियो</div>
+      <div class="cbadge">🏠 व्यक्तिगत भेंट</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img src="WhatsApp_Image_2026-06-14_at_10_10_45_PM.jpeg" alt="पंडित भंवर पुरोहित" class="foot-logo-img">
+  <div class="foot-om">ॐ</div>
+  <div class="foot-name">पंडित भंवर पुरोहित</div>
+  <div class="foot-tagline">विश्व प्रसिद्ध ज्योतिषाचार्य · रायपुर, छत्तीसगढ़</div>
+  <div class="foot-divider"></div>
+  <div class="foot-contact-row">
+    <div class="foot-contact-item">📞 <a href="tel:+919826157151">+91 98261 57151</a></div>
+    <div class="foot-contact-item">📍 जी 2/6, अवंति विहार, रायपुर</div>
+    <div class="foot-contact-item">🕐 सुबह 11 – शाम 6 बजे</div>
+  </div>
+  <div class="foot-links">
+    <a href="#about">परिचय</a>
+    <a href="#certs">प्रमाणपत्र</a>
+    <a href="#services">सेवाएँ</a>
+    <a href="#contact">संपर्क</a>
+  </div>
+  <div class="foot-divider"></div>
+  <div class="foot-copy">© 2025 पंडित भंवर पुरोहित · सर्वाधिकार सुरक्षित · ॐ नमः शिवाय 🙏</div>
+</footer>
+
+<div class="fab">
+  <a href="https://wa.me/919826157151" class="fab-wa" title="WhatsApp">💬</a>
+  <a href="tel:+919826157151" class="fab-btn">📞 अभी कॉल करें</a>
+</div>
+
+<script>
+/* ════════════════════════════
+   LOADER
+════════════════════════════ */
+window.addEventListener('load',()=>{
+  setTimeout(()=>{
+    const l=document.getElementById('loader');
+    if(l) l.classList.add('hide');
+  }, 400);
+});
+
+/* ════════════════════════════
+   BACKGROUND CANVAS — Gold Dust + Bokeh
+════════════════════════════ */
+(function(){
+  const c = document.getElementById('bg-canvas');
+  const ctx = c.getContext('2d');
+  let W, H;
+  const dust = [], bokeh = [];
+
+  function resize(){ W = c.width = innerWidth; H = c.height = innerHeight }
+  resize(); window.addEventListener('resize', resize);
+
+  for(let i = 0; i < 120; i++) dust.push({
+    x: Math.random(), y: Math.random(),
+    r: Math.random() * 2 + .3,
+    a: Math.random() * .5 + .05,
+    da: (Math.random()-.5)*.007,
+    vx: (Math.random()-.5)*.00008,
+    vy: -(Math.random()*.00018+.00004),
+    h: Math.random()*25+25
+  });
+
+  for(let i = 0; i < 18; i++) bokeh.push({
+    x: Math.random(), y: Math.random(),
+    r: Math.random()*40+15,
+    a: Math.random()*.06+.01,
+    da: (Math.random()-.5)*.0008,
+    vx: (Math.random()-.5)*.00004,
+    vy: (Math.random()-.5)*.00004,
+  });
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+
+    // Background gradient
+    const bg = ctx.createLinearGradient(0,0,W,H);
+    bg.addColorStop(0,'#fdf8f0'); bg.addColorStop(.5,'#fff9ee'); bg.addColorStop(1,'#fef4e4');
+    ctx.fillStyle = bg; ctx.fillRect(0,0,W,H);
+
+    // Bokeh circles
+    bokeh.forEach(b=>{
+      b.x=(b.x+b.vx+1)%1; b.y=(b.y+b.vy+1)%1;
+      b.a=Math.max(.008,Math.min(.08,b.a+b.da));
+      if(b.a<=.009||b.a>=.079)b.da*=-1;
+      const g=ctx.createRadialGradient(b.x*W,b.y*H,0,b.x*W,b.y*H,b.r);
+      g.addColorStop(0,`rgba(212,150,14,${b.a})`);
+      g.addColorStop(1,'transparent');
+      ctx.beginPath();ctx.arc(b.x*W,b.y*H,b.r,0,Math.PI*2);
+      ctx.fillStyle=g;ctx.fill();
+    });
+
+    // Gold dust
+    dust.forEach(p=>{
+      p.x=(p.x+p.vx+1)%1; p.y=(p.y+p.vy+1)%1;
+      p.a=Math.max(.03,Math.min(.55,p.a+p.da));
+      if(p.a<=.04||p.a>=.54)p.da*=-1;
+      const g=ctx.createRadialGradient(p.x*W,p.y*H,0,p.x*W,p.y*H,p.r*3);
+      g.addColorStop(0,`hsla(${p.h},90%,52%,${p.a})`);
+      g.addColorStop(1,'transparent');
+      ctx.beginPath();ctx.arc(p.x*W,p.y*H,p.r,0,Math.PI*2);
+      ctx.fillStyle=g;ctx.fill();
+    });
+
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ════════════════════════════
+   MANDALA CANVAS — Rotating SVG-like pattern
+════════════════════════════ */
+(function(){
+  const c = document.getElementById('mandala-canvas');
+  const ctx = c.getContext('2d');
+  let W, H, t = 0;
+  function resize(){ W=c.width=innerWidth; H=c.height=innerHeight }
+  resize(); window.addEventListener('resize', resize);
+
+  function drawMandalaAt(x, y, r, rot, alpha){
+    ctx.save(); ctx.globalAlpha = alpha;
+    ctx.translate(x, y); ctx.rotate(rot);
+    // rings
+    [r*.95,r*.75,r*.55,r*.35,r*.15].forEach(rr=>{
+      ctx.beginPath(); ctx.arc(0,0,rr,0,Math.PI*2);
+      ctx.strokeStyle='#b8790c'; ctx.lineWidth=.6; ctx.stroke();
+    });
+    // spokes
+    for(let i=0;i<12;i++){
+      const a=(i/12)*Math.PI*2;
+      ctx.beginPath();ctx.moveTo(Math.cos(a)*r*.15,Math.sin(a)*r*.15);
+      ctx.lineTo(Math.cos(a)*r*.95,Math.sin(a)*r*.95);
+      ctx.strokeStyle='#b8790c';ctx.lineWidth=.4;ctx.stroke();
+    }
+    // petals
+    for(let i=0;i<12;i++){
+      const a=(i/12)*Math.PI*2;
+      ctx.save();ctx.rotate(a);
+      ctx.beginPath();ctx.ellipse(0,-r*.6,r*.08,r*.2,0,0,Math.PI*2);
+      ctx.fillStyle='rgba(184,121,12,.25)';ctx.fill();
+      ctx.restore();
+    }
+    ctx.restore();
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    t+=.002;
+    // Main centered mandala
+    drawMandalaAt(W/2,H*.28,Math.min(W,H)*.38,t,.12);
+    // Smaller corner accents
+    drawMandalaAt(W*.08,H*.08,Math.min(W,H)*.1,t*.7,.06);
+    drawMandalaAt(W*.92,H*.08,Math.min(W,H)*.1,-t*.7,.06);
+    drawMandalaAt(W*.08,H*.92,Math.min(W,H)*.09,t*.5,.05);
+    drawMandalaAt(W*.92,H*.92,Math.min(W,H)*.09,-t*.5,.05);
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ════════════════════════════
+   CONSTELLATION STARS — twinkling network
+════════════════════════════ */
+(function(){
+  const c = document.getElementById('stars-canvas');
+  if(!c) return;
+  const ctx = c.getContext('2d');
+  let W,H,stars=[];
+  function resize(){
+    W=c.width=innerWidth; H=c.height=innerHeight;
+    stars=[];
+    const count = Math.floor((W*H)/22000);
+    for(let i=0;i<count;i++){
+      stars.push({
+        x:Math.random()*W, y:Math.random()*H,
+        r:Math.random()*1.4+.4,
+        a:Math.random()*.6+.2,
+        da:(Math.random()-.5)*.012,
+        tw:Math.random()*Math.PI*2
+      });
+    }
+  }
+  resize(); window.addEventListener('resize',resize);
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    stars.forEach(s=>{
+      s.tw += 0.02;
+      const alpha = s.a + Math.sin(s.tw)*0.18;
+      ctx.beginPath();
+      ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(184,121,12,${Math.max(0,alpha)})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ════════════════════════════
+   ZODIAC WHEEL
+════════════════════════════ */
+(function(){
+  const canvas = document.getElementById('zodiacCanvas');
+  const ctx = canvas.getContext('2d');
+  const W=600,H=600,cx=W/2,cy=H/2;
+  const signs=[
+    {n:'मेष',s:'♈',c:'#d83030'},{n:'वृषभ',s:'♉',c:'#289828'},
+    {n:'मिथुन',s:'♊',c:'#b89010'},{n:'कर्क',s:'♋',c:'#4848b8'},
+    {n:'सिंह',s:'♌',c:'#c86010'},{n:'कन्या',s:'♍',c:'#387838'},
+    {n:'तुला',s:'♎',c:'#8030a8'},{n:'वृश्चिक',s:'♏',c:'#b01010'},
+    {n:'धनु',s:'♐',c:'#a07010'},{n:'मकर',s:'♑',c:'#207070'},
+    {n:'कुम्भ',s:'♒',c:'#2040a8'},{n:'मीन',s:'♓',c:'#305880'}
+  ];
+  let rot=0, hovered=-1;
+
+  canvas.addEventListener('mousemove',e=>{
+    const rect=canvas.getBoundingClientRect();
+    const scale=W/rect.width;
+    const mx=(e.clientX-rect.left)*scale-cx, my=(e.clientY-rect.top)*scale-cy;
+    const dist=Math.sqrt(mx*mx+my*my);
+    if(dist>165&&dist<285){
+      let angle=Math.atan2(my,mx)-rot;
+      while(angle<0)angle+=Math.PI*2;
+      hovered=Math.floor(angle/(Math.PI*2/12));
+    } else hovered=-1;
+  });
+  canvas.addEventListener('mouseleave',()=>hovered=-1);
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+
+    // Background
+    const bg=ctx.createRadialGradient(cx,cy,0,cx,cy,290);
+    bg.addColorStop(0,'#fffdf7');bg.addColorStop(.6,'#fef4e4');bg.addColorStop(1,'#fdeab8');
+    ctx.beginPath();ctx.arc(cx,cy,290,0,Math.PI*2);
+    ctx.fillStyle=bg;ctx.fill();
+
+    // Outer ring glow
+    const ringG=ctx.createRadialGradient(cx,cy,278,cx,cy,292);
+    ringG.addColorStop(0,'rgba(212,150,14,.5)');ringG.addColorStop(1,'rgba(184,121,12,.1)');
+    ctx.beginPath();ctx.arc(cx,cy,285,0,Math.PI*2);
+    ctx.strokeStyle=ringG;ctx.lineWidth=14;ctx.stroke();
+
+    signs.forEach((s,i)=>{
+      const a1=(i/12)*Math.PI*2+rot, a2=((i+1)/12)*Math.PI*2+rot, amid=(a1+a2)/2;
+      const isHov=(i===hovered);
+
+      // Segment fill on hover
+      if(isHov){
+        ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,280,a1,a2);ctx.closePath();
+        ctx.fillStyle=s.c+'14';ctx.fill();
+      }
+
+      // Colored arc
+      ctx.beginPath();ctx.arc(cx,cy,284,a1+.01,a2-.01);
+      ctx.strokeStyle=isHov?s.c:s.c+'99';
+      ctx.lineWidth=isHov?14:9;ctx.stroke();
+
+      // Divider lines
+      ctx.beginPath();ctx.moveTo(cx+Math.cos(a1)*165,cy+Math.sin(a1)*165);
+      ctx.lineTo(cx+Math.cos(a1)*278,cy+Math.sin(a1)*278);
+      ctx.strokeStyle='rgba(253,248,240,.8)';ctx.lineWidth=1.5;ctx.stroke();
+
+      // Symbol
+      const sr=240,sx=cx+Math.cos(amid)*sr,sy=cy+Math.sin(amid)*sr;
+      ctx.font=`${isHov?'bold ':''}24px serif`;
+      ctx.fillStyle=isHov?s.c:s.c+'cc';
+      ctx.textAlign='center';ctx.textBaseline='middle';
+      if(isHov){ctx.shadowColor=s.c;ctx.shadowBlur=12}
+      ctx.fillText(s.s,sx,sy);
+      ctx.shadowBlur=0;
+
+      // Name
+      const nr=200,nx=cx+Math.cos(amid)*nr,ny=cy+Math.sin(amid)*nr;
+      ctx.font=`${isHov?'bold ':''} 13px serif`;
+      ctx.fillStyle=isHov?s.c:'rgba(90,58,24,.8)';
+      ctx.fillText(s.n,nx,ny);
+    });
+
+    // Inner concentric rings
+    [140,110,80,50].forEach((r,i)=>{
+      ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);
+      ctx.strokeStyle=`rgba(184,121,12,${.1+i*.04})`;
+      ctx.lineWidth=i===0?.8:.5;ctx.stroke();
+    });
+
+    // Rotating inner pattern
+    ctx.save();ctx.translate(cx,cy);ctx.rotate(rot*2);
+    for(let i=0;i<8;i++){
+      const a=(i/8)*Math.PI*2;
+      ctx.beginPath();
+      ctx.moveTo(Math.cos(a)*50,Math.sin(a)*50);
+      ctx.lineTo(Math.cos(a)*138,Math.sin(a)*138);
+      ctx.strokeStyle='rgba(184,121,12,.12)';ctx.lineWidth=.6;ctx.stroke();
+      ctx.beginPath();ctx.arc(Math.cos(a)*100,Math.sin(a)*100,3,0,Math.PI*2);
+      ctx.fillStyle='rgba(212,150,14,.4)';ctx.fill();
+    }
+    ctx.restore();
+
+    // Planet dots on orbit
+    const pc=['#d4a012','#8888cc','#e04020','#60a060','#d09030','#e8c060','#b09050','#505060','#8060A0'];
+    [0,30,72,120,180,216,270,315].forEach((deg,i)=>{
+      const a=(deg*Math.PI/180)+rot*1.5, r=125+Math.sin(rot*2+i)*8;
+      const px=cx+Math.cos(a)*r, py=cy+Math.sin(a)*r;
+      ctx.beginPath();ctx.arc(px,py,5.5,0,Math.PI*2);
+      ctx.fillStyle=pc[i];
+      ctx.shadowColor=pc[i];ctx.shadowBlur=10;
+      ctx.fill();ctx.shadowBlur=0;
+      // Tiny ring
+      ctx.beginPath();ctx.arc(px,py,8,0,Math.PI*2);
+      ctx.strokeStyle=pc[i]+'44';ctx.lineWidth=1;ctx.stroke();
+    });
+
+    // OM center
+    ctx.save();ctx.translate(cx,cy);
+    const omG=ctx.createRadialGradient(0,0,0,0,0,38);
+    omG.addColorStop(0,'#e07010');omG.addColorStop(.5,'#c9972a');omG.addColorStop(1,'#b8790c');
+    ctx.beginPath();ctx.arc(0,0,40,0,Math.PI*2);
+    ctx.fillStyle='rgba(255,253,247,.95)';ctx.fill();
+    ctx.strokeStyle='rgba(184,121,12,.4)';ctx.lineWidth=1.5;ctx.stroke();
+    ctx.font='bold 38px serif';ctx.fillStyle=omG;
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.shadowColor='rgba(224,112,16,.4)';ctx.shadowBlur=16;
+    ctx.fillText('ॐ',0,4);ctx.shadowBlur=0;
+    ctx.restore();
+
+    rot+=.004;
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ════════════════════════════
+   NAV SCROLL EFFECT
+════════════════════════════ */
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',scrollY>60);
+});
+
+/* ════════════════════════════
+   SCROLL REVEAL
+════════════════════════════ */
+const io = new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('on'), i*80);
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:.07});
+document.querySelectorAll('.rv,.rv-left,.rv-right').forEach(el=>io.observe(el));
+
+/* ════════════════════════════
+   CUSTOM COSMIC CURSOR
+════════════════════════════ */
+if(window.matchMedia('(pointer:fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const dot = document.getElementById('cursorDot');
+  const ring = document.getElementById('cursorRing');
+  let mx=0,my=0, rx=0, ry=0;
+
+  window.addEventListener('mousemove', e=>{
+    mx=e.clientX; my=e.clientY;
+    dot.style.left = mx+'px'; dot.style.top = my+'px';
+  });
+
+  function ringLoop(){
+    rx += (mx-rx)*0.18;
+    ry += (my-ry)*0.18;
+    ring.style.left = rx+'px';
+    ring.style.top = ry+'px';
+    requestAnimationFrame(ringLoop);
+  }
+  ringLoop();
+
+  // Magnetic / active state over interactive elements
+  const interactive = 'a, button, .btn-gold, .btn-outline, .nav-cta, .fab-btn, .fab-wa, .planet-pill, .graha-card, .serv-card, .cert-card, .dosha-card, .prob-card, .testi-card, .hero-badge, .cbadge';
+  document.querySelectorAll(interactive).forEach(el=>{
+    el.addEventListener('mouseenter', ()=>{
+      ring.classList.add('active');
+      dot.classList.add('active');
+    });
+    el.addEventListener('mouseleave', ()=>{
+      ring.classList.remove('active');
+      dot.classList.remove('active');
+    });
+  });
+
+  // hide cursor visuals when leaving window
+  document.addEventListener('mouseleave', ()=>{ dot.style.opacity='0'; ring.style.opacity='0'; });
+  document.addEventListener('mouseenter', ()=>{ dot.style.opacity='1'; ring.style.opacity='1'; });
+
+  // Click sparkle burst
+  document.addEventListener('click', e=>{
+    const syms = ['✦','✧','✨','🪷'];
+    for(let i=0;i<4;i++){
+      const s = document.createElement('div');
+      s.className='click-spark';
+      s.textContent = syms[Math.floor(Math.random()*syms.length)];
+      const ang = (Math.PI*2/4)*i + Math.random()*0.6;
+      const dist = 18 + Math.random()*14;
+      s.style.left = e.clientX+'px';
+      s.style.top = e.clientY+'px';
+      s.style.setProperty('--tx', (Math.cos(ang)*dist)+'px');
+      s.style.setProperty('--ty', (Math.sin(ang)*dist)+'px');
+      document.body.appendChild(s);
+      setTimeout(()=>s.remove(), 650);
+    }
+  });
+}
+
+
+/* ════════════════════════════
+   PANCHANG DATE (auto-fill today's date)
+════════════════════════════ */
+(function(){
+  const el = document.getElementById('panchang-date');
+  if(!el) return;
+  const days = ['रविवार','सोमवार','मंगलवार','बुधवार','गुरुवार','शुक्रवार','शनिवार'];
+  const months = ['जनवरी','फरवरी','मार्च','अप्रैल','मई','जून','जुलाई','अगस्त','सितंबर','अक्टूबर','नवंबर','दिसंबर'];
+  const d = new Date();
+  el.textContent = `${days[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+})();
+
+/* ════════════════════════════
+   3D TILT ON PREMIUM CARDS (subtle, via CSS vars)
+════════════════════════════ */
+if(window.matchMedia('(pointer:fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  document.querySelectorAll('.graha-card, .dosha-card').forEach(card=>{
+    card.style.willChange = 'transform';
+    card.style.transition = card.style.transition + ',transform .15s ease-out';
+    card.addEventListener('mousemove', e=>{
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - .5;
+      const py = (e.clientY - r.top) / r.height - .5;
+      card.style.transform = `translateY(-8px) scale(1.02) perspective(800px) rotateX(${(-py*6).toFixed(2)}deg) rotateY(${(px*6).toFixed(2)}deg)`;
+    });
+    card.addEventListener('mouseleave', ()=>{ card.style.transform=''; });
+  });
+}
+
+</script>
+</body>
+</html>
